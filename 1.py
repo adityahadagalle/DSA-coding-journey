@@ -1204,16 +1204,81 @@ from collections import Counter
 
 
 
-intervals = [[1,10],[2,3],[4,5],[6,7]]
+# intervals = [[1,10],[2,3],[4,5],[6,7]]
 
-intervals.sort(key=lambda x:x[1])
-count=1
-end1=intervals[0][1]
-for i in range(1,len(intervals)):
-    st2=intervals[i][0]
-    end2=intervals[i][1]
-    if end1<=st2:
-        count+=1
+# intervals.sort(key=lambda x:x[1])
+# count=1
+# end1=intervals[0][1]
+# for i in range(1,len(intervals)):
+#     st2=intervals[i][0]
+#     end2=intervals[i][1]
+#     if end1<=st2:
+#         count+=1
     
-        end1=end2
-print(count)        
+#         end1=end2
+# print(count)        
+
+
+# intervals = [[1,2], [3,4], [0,6], [5,7], [8,9], [5,9]]
+
+# intervals.sort(key=lambda x:x[1])
+# print(intervals)
+# end1=intervals[0][1]
+# for i in range(1,len(intervals)):
+#     st2=intervals[i][0]
+#     end2=intervals[i][1]
+    
+# start = [1, 3, 0, 5, 8, 5]
+# end   = [2, 4, 6, 7, 9, 9]
+# start.sort(key=lambda x:x)
+# end.sort(key=lambda x:x)
+
+
+
+
+# activities = [[1,10], [2,7], [3,19], [8,12], [10,20]]
+# activities.sort(key=lambda x: x[1])
+# end1=activities[0][1]
+# count=1
+# for i in range(1,len(activities)):
+#     st2=activities[i][0]
+#     end2=activities[i][1]
+#     if end1<=st2:
+#         count+=1
+#     else:
+#         end1=end2
+# print(count)        
+
+
+activities = [
+  [1,4,4],
+  [2,5,2],
+  [3,6,3],
+  [7,8,6]
+]
+# Two-pointer prep (separate and sort)
+# prepare arrays
+starts = sorted([(x[0], x[2]) for x in activities])  # (start, load)
+ends = sorted([(x[1], x[2]) for x in activities])    # (end, load)
+
+i = 0
+j = 0
+current_load = 0
+max_load = 0
+
+while i < len(starts) and j < len(ends):
+    if starts[i][0] < ends[j][0]:
+        current_load += starts[i][1]
+        max_load = max(max_load, current_load)
+        i += 1
+    else:
+        current_load -= ends[j][1]
+        j += 1
+
+print(max_load)
+           
+        
+        
+
+
+
