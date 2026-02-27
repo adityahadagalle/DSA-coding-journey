@@ -1,4 +1,2 @@
-start = [1, 3, 0, 5, 8, 5]
-# end   = [2, 4, 6, 7, 9, 9]
-# start.sort(key=lambda x:x)
-# end.sort(key=lambda x:x)
+
+    if sta and arr[i]<sta[-1]:

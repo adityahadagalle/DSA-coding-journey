@@ -1250,35 +1250,111 @@ from collections import Counter
 # print(count)        
 
 
-activities = [
-  [1,4,4],
-  [2,5,2],
-  [3,6,3],
-  [7,8,6]
-]
-# Two-pointer prep (separate and sort)
-# prepare arrays
-starts = sorted([(x[0], x[2]) for x in activities])  # (start, load)
-ends = sorted([(x[1], x[2]) for x in activities])    # (end, load)
+# activities = [
+#   [1,4,4],
+#   [2,5,2],
+#   [3,6,3],
+#   [7,8,6]
+# ]
+# # Two-pointer prep (separate and sort)
+# # prepare arrays
+# starts = sorted([(x[0], x[2]) for x in activities])  # (start, load)
+# ends = sorted([(x[1], x[2]) for x in activities])    # (end, load)
 
-i = 0
-j = 0
-current_load = 0
-max_load = 0
+# i = 0
+# j = 0
+# current_load = 0
+# max_load = 0
 
-while i < len(starts) and j < len(ends):
-    if starts[i][0] < ends[j][0]:
-        current_load += starts[i][1]
-        max_load = max(max_load, current_load)
-        i += 1
+# while i < len(starts) and j < len(ends):
+#     if starts[i][0] < ends[j][0]:
+#         current_load += starts[i][1]
+#         max_load = max(max_load, current_load)
+#         i += 1
+#     else:
+#         current_load -= ends[j][1]
+#         j += 1
+
+# print(max_load)
+
+
+
+#stack############################################333333333333333333##################################################################33333333333333333333333333333333333333333333333333333333333333333333
+
+
+# arr=[1,2,2,1,3,1]
+# stack=[]
+# result=[]
+# for i in arr:
+#     if stack and stack[-1]==i:
+#         stack.pop()
+        
+#     else:
+#         stack.append(i)
+        
+# print(stack)
+    
+    
+    
+    
+
+# s = "(}"
+# result=[]
+# for i in s:
+#     if i =='(' or i=='[' or i== '{':
+#         result.append(i)
+#     elif result and i==')' and result[-1]=='(':
+#         result.pop()
+#     elif result and i=='}' and result[-1]=='{':
+#         result.pop()  
+#     elif result and i==']' and result[-1]=='[':
+#         result.pop()
+      
+# if not result:
+#     print("True")
+# else:
+#     print('False')              
+        
+
+
+# s="hello"
+# stack=list(s)
+# reve=''
+# while stack:
+#     reve+=stack.pop()
+# print(reve)    
+ 
+ 
+ 
+ 
+# arr=[3,1,2,6,5]
+# result=[]
+# sta=[]
+# for i in range(len(arr)):
+#     while sta and sta[-1]<=arr[i]:
+#         sta.pop()
+#     if not sta:
+#         result.append(-1)
+#     else:
+#         result.append(sta[-1])
+#     sta.append(arr[i])          
+# print(result)               
+# print(sta)
+
+arr = [73, 74, 75, 71, 69, 72, 76, 73]
+sta=[]
+result=[]
+for i in range(len(arr)-1,-1,-1):
+    while sta and arr[sta[-1]]<=arr[i]:
+        sta.pop()
+  
+    
+    if not sta:
+        result.append(0)
     else:
-        current_load -= ends[j][1]
-        j += 1
-
-print(max_load)
-           
+        result.append(sta[-1]-i)
         
-        
+    sta.append(i)       
+print(result)
 
-
-
+    
