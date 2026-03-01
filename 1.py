@@ -1359,26 +1359,35 @@ from collections import Counter
 
     
     
-# nums = [5, 4, 3, 2, 1]
-# sta=[]
-# result=[]
-# n=len(nums)
-# i=0
-# while [i%n]!=i:
-#     print(i)
-#     i+=1
-nums = [1,2,3,4,5]
-n = len(nums)
-result = [-1] * n
-stack = []
 
-for i in range(2 * n):
-    while stack and nums[stack[-1]] <nums[i % n]:
-        index = stack.pop()
-        result[index] = nums[i % n]
+# nums = [1,2,3,4,5]
+# n = len(nums)
+# result = [-1] * n
+# stack = []
+
+# for i in range(2 * n):
+#     while stack and nums[stack[-1]] <nums[i % n]:
+#         index = stack.pop()
+#         result[index] = nums[i % n]
     
-    if i < n:
-        stack.append(i)
+#     if i < n:
+#         stack.append(i)
 
+# print(result)
+
+
+nums =  [100, 80, 60, 70, 60, 75, 85]
+n = len(nums)
+result = [1]*n
+stack = []
+count=0
+for i in range(len(nums)):
+    while stack and nums[stack[-1]]<=nums[i]:
+        k=stack.pop()
+    if stack:    
+        index=i-stack[-1]
+        result[i]=index  
+    else:
+        result[i]=i+1          
+    stack.append(i)   
 print(result)
-

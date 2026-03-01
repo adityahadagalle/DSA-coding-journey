@@ -1,15 +1,15 @@
-arr = [73, 74, 75, 71, 69, 72, 76, 73]
-# sta=[]
-# result=[]
-# for i in range(len(arr)-1,-1,-1):
-#     while sta and arr[sta[-1]]<=arr[i]:
-#         sta.pop()
-  
+
+# nums = [1,2,3,4,5]
+# n = len(nums)
+# result = [-1] * n
+# stack = []
+
+# for i in range(2 * n):
+#     while stack and nums[stack[-1]] <nums[i % n]:
+#         index = stack.pop()
+#         result[index] = nums[i % n]
     
-#     if not sta:
-#         result.append(0)
-#     else:
-#         result.append(sta[-1]-i)
-        
-#     sta.append(i)       
+#     if i < n:
+#         stack.append(i)
+
 # print(result)
