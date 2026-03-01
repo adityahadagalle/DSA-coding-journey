@@ -1341,20 +1341,44 @@ from collections import Counter
 # print(result)               
 # print(sta)
 
-arr = [73, 74, 75, 71, 69, 72, 76, 73]
-sta=[]
-result=[]
-for i in range(len(arr)-1,-1,-1):
-    while sta and arr[sta[-1]]<=arr[i]:
-        sta.pop()
+# arr = [73, 74, 75, 71, 69, 72, 76, 73]
+# sta=[]
+# result=[]
+# for i in range(len(arr)-1,-1,-1):
+#     while sta and arr[sta[-1]]<=arr[i]:
+#         sta.pop()
   
     
-    if not sta:
-        result.append(0)
-    else:
-        result.append(sta[-1]-i)
+#     if not sta:
+#         result.append(0)
+#     else:
+#         result.append(sta[-1]-i)
         
-    sta.append(i)       
-print(result)
+#     sta.append(i)       
+# print(result)
 
     
+    
+# nums = [5, 4, 3, 2, 1]
+# sta=[]
+# result=[]
+# n=len(nums)
+# i=0
+# while [i%n]!=i:
+#     print(i)
+#     i+=1
+nums = [8,4,3,5,7]
+
+n = len(nums)
+result = [-1] * n
+stack = []
+
+for i in range(2 * n):
+    while stack and nums[stack[-1]] < nums[i % n]:
+        index = stack.pop()
+        result[index] = nums[i % n]
+    
+    if i < n:
+        stack.append(i)
+
+print(result)
