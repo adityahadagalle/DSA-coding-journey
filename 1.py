@@ -1376,18 +1376,75 @@ from collections import Counter
 # print(result)
 
 
-nums =  [100, 80, 60, 70, 60, 75, 85]
-n = len(nums)
-result = [1]*n
+# nums =  [100, 80, 60, 70, 60, 75, 85]
+# n = len(nums)
+# result = [1]*n
+# stack = []
+# count=0
+# for i in range(len(nums)):
+#     while stack and nums[stack[-1]]<=nums[i]:
+#         k=stack.pop()
+#     if stack:    
+#         index=i-stack[-1]
+#         result[i]=index  
+#     else:
+#         result[i]=i+1          
+#     stack.append(i)   
+# print(result)
+
+
+
+# nums =[3,5,-6,2,-1,4]
+# result=[]
+# stack=[]
+# for i in range(len(nums)):
+    
+#     while stack and stack[-1]<nums[i]:
+#             stack.pop()
+#     if abs(stack[-1])<abs(nums[i]):
+#             result.append(abs(nums[i])) 
+#     else:
+#             result.append(abs(stack[-1]))
+#     stack.append(nums[i]) 
+# print(result)               
+
+
+# nums =[3,5,-6,2,-1,4]
+# result=[]
+# stack=[]
+# for i in range(len(nums)):
+#     if nums[i]>0:
+#         stack.append(nums[i])
+#     else:
+        
+#         while stack and stack[-1]<abs(nums[i]):
+#             stack.pop()
+#             if stack and abs(nums[i])>stack[-1]:
+#                 result.append(abs(nums[i]))
+#             else:
+#                 stack and result.append(stack[-1])        
+    
+# print(result)
+
+
+nums = [5,10,-5]
 stack = []
-count=0
-for i in range(len(nums)):
-    while stack and nums[stack[-1]]<=nums[i]:
-        k=stack.pop()
-    if stack:    
-        index=i-stack[-1]
-        result[i]=index  
+
+for num in nums:
+    
+    if num > 0:
+        stack.append(num)
+    
     else:
-        result[i]=i+1          
-    stack.append(i)   
-print(result)
+        while stack and stack[-1] > 0 and stack[-1] < abs(num):
+            stack.pop()
+        
+        if stack and stack[-1] > 0:
+            if stack[-1] == abs(num):
+                stack.pop()
+            # else stack[-1] > abs(num)
+            # do nothing (negative gets destroyed)
+        else:
+            stack.append(abs(num))
+
+print(stack)
