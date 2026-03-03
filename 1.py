@@ -1427,24 +1427,38 @@ from collections import Counter
 # print(result)
 
 
-nums = [5,10,-5]
-stack = []
+# nums = [5,10,-5]
+# stack = []
 
-for num in nums:
+# for num in nums:
     
-    if num > 0:
-        stack.append(num)
+#     if num > 0:
+#         stack.append(num)
     
-    else:
-        while stack and stack[-1] > 0 and stack[-1] < abs(num):
-            stack.pop()
+#     else:
+#         while stack and stack[-1] > 0 and stack[-1] < abs(num):
+#             stack.pop()
         
-        if stack and stack[-1] > 0:
-            if stack[-1] == abs(num):
-                stack.pop()
-            # else stack[-1] > abs(num)
-            # do nothing (negative gets destroyed)
-        else:
-            stack.append(abs(num))
+#         if stack and stack[-1] > 0:
+#             if stack[-1] == abs(num):
+#                 stack.pop()
+#             # else stack[-1] > abs(num)
+#             # do nothing (negative gets destroyed)
+#         else:
+#             stack.append(abs(num))
 
-print(stack)
+# print(stack)
+
+arr=['a','a','a','b','a']
+sta=[]
+result=[]
+k=3
+for i in range(len(arr)):
+    if sta and sta[-1][0]==arr[i]:
+        sta[-1][1] += 1
+        if  sta and sta[-1][1]>=k:
+            sta.pop()
+    else:
+        
+        sta.append([arr[i],1]) 
+print(sta)
