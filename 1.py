@@ -1502,6 +1502,7 @@ result = "/" + "/".join(sta)
 
 print(result)
 print(result)
+print(result)
     
     
     
