@@ -1,2 +1,4 @@
-    if  sta[-1][1]==3:
-            sta.pop
+re=''
+for i,j in sta:
+    re+=i*j
+print(re)

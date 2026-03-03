@@ -1449,16 +1449,60 @@ from collections import Counter
 
 # print(stack)
 
-arr=['a','a','a','b','a']
+# arr=['a','a','a','b','a']
+# sta=[]
+# result=[]
+# k=3
+# for i in range(len(arr)):
+#     if sta and sta[-1][0]==arr[i]:
+#         sta[-1][1] += 1
+#         if  sta and sta[-1][1]>=k:
+#             sta.pop()
+#     else:
+        
+#         sta.append([arr[i],1]) 
+# re=''
+# for i,j in sta:
+#     re+=i*j
+# print(re)
+
+# arr="/home//foo/../bar/./baz/"
+# sta=[]
+# result=[]
+# for i in range(len(arr)):
+#     if arr[i]==".":
+#         if sta[-1][1]==2:
+#             while sta and sta[-1]=='/':
+#                 sta.pop()
+        
+#     sta.append([arr[i],1])
+# re=''
+# for i,j in sta:
+#     re+=i*j
+# print(re)
+
+
+arr = "/home//foo/../bar/./baz/"
+
+parts = arr.split('/')
 sta=[]
 result=[]
-k=3
-for i in range(len(arr)):
-    if sta and sta[-1][0]==arr[i]:
-        sta[-1][1] += 1
-        if  sta and sta[-1][1]>=k:
-            sta.pop()
-    else:
-        
-        sta.append([arr[i],1]) 
-print(sta)
+for part in parts:
+    
+    if sta and part=='..':
+        sta.pop()
+    if part=='.'or part=='':
+        continue    
+            
+    elif part!='..' :
+     sta.append(part)
+    
+
+result = "/" + "/".join(sta)
+
+print(result)
+    
+    
+    
+
+    
