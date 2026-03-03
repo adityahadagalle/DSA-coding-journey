@@ -1501,6 +1501,7 @@ for part in parts:
 result = "/" + "/".join(sta)
 
 print(result)
+print(result)
     
     
     
