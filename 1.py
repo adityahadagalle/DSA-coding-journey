@@ -1518,6 +1518,7 @@ if count==0:
         
 result = ''.join(sta).lstrip('0') or '0'    
 print(result)
+print(result)
     
     
 
