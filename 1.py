@@ -1482,28 +1482,42 @@ from collections import Counter
 # print(re)
 
 
-arr = "/home//foo/../bar/./baz/"
+# arr = "/home//foo/../bar/./baz/"
 
-parts = arr.split('/')
-sta=[]
-result=[]
-for part in parts:
+# parts = arr.split('/')
+# sta=[]
+# result=[]
+# for part in parts:
     
-    if sta and part=='..':
-        sta.pop()
-    if part=='.'or part=='':
-        continue    
+#     if sta and part=='..':
+#         sta.pop()
+#     if part=='.'or part=='':
+#         continue    
             
-    elif part!='..' :
-     sta.append(part)
+#     elif part!='..' :
+#      sta.append(part)
     
 
-result = "/" + "/".join(sta)
+# result = "/" + "/".join(sta)
 
+# print(result)
+
+num = "120340"
+k = 2
+result=[]
+sta=[]
+count=0
+for i in range(len(num)):
+    if count<k:
+        while sta and sta[-1]>num[i]:
+            sta.pop()
+            count+=1
+    sta.append(num[i])   
+if count==0:
+    sta=num[:-k]
+        
+result = ''.join(sta).lstrip('0') or '0'    
 print(result)
-print(result)
-print(result)
-    
     
     
 
