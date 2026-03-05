@@ -1502,24 +1502,42 @@ from collections import Counter
 
 # print(result)
 
-num = "120340"
-k = 2
-result=[]
-sta=[]
-count=0
-for i in range(len(num)):
-    if count<k:
-        while sta and sta[-1]>num[i]:
-            sta.pop()
-            count+=1
-    sta.append(num[i])   
-if count==0:
-    sta=num[:-k]
+# num = "120340"
+# k = 2
+# result=[]
+# sta=[]
+# count=0
+# for i in range(len(num)):
+#     if count<k:
+#         while sta and sta[-1]>num[i]:
+#             sta.pop()
+#             count+=1
+#     sta.append(num[i])   
+# if count==0:
+#     sta=num[:-k]
         
-result = ''.join(sta).lstrip('0') or '0'    
-print(result)
-print(result)
+# result = ''.join(sta).lstrip('0') or '0'    
+# print(result)
+
     
     
 
-    
+#     if sta and sta[-1][0]==arr[i]:
+#         sta[-1][1] += 1
+#         if  sta and sta[-1][1]>=k:
+#             sta.pop()
+#     else:
+        
+s = "bcabc"
+
+last = {c:i for i,c in enumerate(s)}
+stack = []
+seen = set()
+for i ,c in enumerate(s):
+    if s[i] in seen:
+        continue
+    while stack and stack[-1]>s[i] and last[stack[-1]]>i:
+         seen.remove(stack.pop())
+    stack.append(s[i])
+    seen.add(s[i])
+print(stack)
