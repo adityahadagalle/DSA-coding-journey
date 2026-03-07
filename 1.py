@@ -1541,3 +1541,4 @@ for i ,c in enumerate(s):
     stack.append(s[i])
     seen.add(s[i])
 print(stack)
+print(stack)
