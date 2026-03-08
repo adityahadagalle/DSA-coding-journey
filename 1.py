@@ -1528,17 +1528,34 @@ from collections import Counter
 #             sta.pop()
 #     else:
         
-s = "bcabc"
+# s = "bcabc"
 
-last = {c:i for i,c in enumerate(s)}
-stack = []
-seen = set()
-for i ,c in enumerate(s):
-    if s[i] in seen:
-        continue
-    while stack and stack[-1]>s[i] and last[stack[-1]]>i:
-         seen.remove(stack.pop())
-    stack.append(s[i])
-    seen.add(s[i])
-print(stack)
-print(stack)
+# last = {c:i for i,c in enumerate(s)}
+# stack = []
+# seen = set()
+# for i ,c in enumerate(s):
+#     if s[i] in seen:
+#         continue
+#     while stack and stack[-1]>s[i] and last[stack[-1]]>i:
+#          seen.remove(stack.pop())
+#     stack.append(s[i])
+#     seen.add(s[i])
+# print(stack)
+# print(stack)
+
+nums = [4,5,0,-2,-3,1]
+k = 5
+dictt={0:1}
+pre=0
+count=0
+for i in range(len(nums)):
+    pre+=nums[i]
+    val=pre%k
+    if val in dictt:
+        count+=dictt[val]
+    
+    dictt[val]=dictt.get(val,0)+1  
+        
+print(count)
+       
+       
