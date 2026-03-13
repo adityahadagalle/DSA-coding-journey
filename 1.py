@@ -1543,19 +1543,23 @@ from collections import Counter
 # print(stack)
 # print(stack)
 
-nums = [4,5,0,-2,-3,1]
-k = 5
-dictt={0:1}
-pre=0
-count=0
-for i in range(len(nums)):
-    pre+=nums[i]
-    val=pre%k
-    if val in dictt:
-        count+=dictt[val]
-    
-    dictt[val]=dictt.get(val,0)+1  
-        
-print(count)
+
        
-       
+#HASH MAP############################################################################################################3#################################################################################################################
+s = "leetcodel"
+hash = {}
+
+# first loop → count frequency
+for i in range(len(s)):
+    if s[i] in hash:
+        hash[s[i]] += 1
+    else:
+        hash[s[i]] = 1
+
+# second loop → find first unique character
+for i in range(len(s)):
+    if hash[s[i]] == 1:
+        print(i)
+        break
+else:
+    print(-1)
