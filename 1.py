@@ -1546,20 +1546,34 @@ from collections import Counter
 
        
 #HASH MAP############################################################################################################3#################################################################################################################
-s = "leetcodel"
-hash = {}
+# s = "leetcodel"
+# hash = {}
 
-# first loop → count frequency
-for i in range(len(s)):
-    if s[i] in hash:
-        hash[s[i]] += 1
-    else:
-        hash[s[i]] = 1
+# # first loop → count frequency
+# for i in range(len(s)):
+#     if s[i] in hash:
+#         hash[s[i]] += 1
+#     else:
+#         hash[s[i]] = 1
 
-# second loop → find first unique character
-for i in range(len(s)):
-    if hash[s[i]] == 1:
-        print(i)
-        break
-else:
-    print(-1)
+# # second loop → find first unique character
+# for i in range(len(s)):
+#     if hash[s[i]] == 1:
+#         print(i)
+#         break
+# else:
+#     print(-1)
+
+
+
+ransomNote = "aa"
+magazine = "aab"
+hash={}
+hash1={}
+for ch in ransomNote:
+    hash[ch] = hash.get(ch, 0) + 1
+for ch1 in magazine:
+    hash1[ch1] = hash1.get(ch1, 0) + 1
+    if hash[ch]<hash1[ch1]:
+        print("True")
+        print("True")
