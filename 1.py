@@ -1577,3 +1577,5 @@ for ch1 in magazine:
     if hash[ch]<hash1[ch1]:
         print("True")
         print("True")
+        
+        print("True")
