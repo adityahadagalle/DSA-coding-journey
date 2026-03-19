@@ -1566,19 +1566,31 @@ from collections import Counter
 
 
 
-ransomNote = "aa"
-magazine = "aab"
-hash={}
-hash1={}
-for ch in ransomNote:
-    hash[ch] = hash.get(ch, 0) + 1
-for ch1 in magazine:
-    hash1[ch1] = hash1.get(ch1, 0) + 1
-    if hash[ch]<hash1[ch1]:
-        print("True")
-        print("True")
+# ransomNote = "aa"
+# magazine = "aab"
+# hash={}
+# hash1={}
+# for ch in ransomNote:
+#     hash[ch] = hash.get(ch, 0) + 1
+# for ch1 in magazine:
+#     hash1[ch1] = hash1.get(ch1, 0) + 1
+#     if hash[ch]<hash1[ch1]:
+#         print("True")
+ 
+ 
+arr=[1,2,3,4,5]
+tar=4
+low=0
+high=len(arr)-1
+while low<=high:
+    mid=(high+low)//2
+    if arr[mid]==tar:
+        print(mid)
+        break
+    elif arr[mid] <tar:
+        low=mid+1
+    else:
+        high=mid-1
+print("-1")
+print("+-1")
         
-        print("True")
-        print("True")
-        print("True")
-        print("True")

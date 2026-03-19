@@ -1,2 +1,2 @@
-
-print(sta)    
+else:
+#     print(-1)
