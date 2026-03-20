@@ -1595,24 +1595,38 @@ from collections import Counter
   
 
 #First and Last Position problem
-arr = [1,3,3,3,3,3,5]
-target = 3
-low=0
-result=-1
-high=len(arr)-1
-while low<=high:
-    mid=(high+low)//2
+# arr = [1,3,3,3,3,3,5]
+# target = 3
+# low=0
+# result=-1
+# high=len(arr)-1
+# while low<=high:
+#     mid=(high+low)//2
 
-    if arr[mid]>target:
-        high=mid-1
+#     if arr[mid]>target:
+#         high=mid-1
     
-    elif arr[mid]<target:
-            low=mid+1
+#     elif arr[mid]<target:
+#             low=mid+1
+#     else:
+#         result=mid
+#         high=mid-1
+# print(result)
+
+
+arr = [0,1,0]
+low = 0
+result = 0
+check = 0
+high = len(arr) - 1
+
+while low <= high:
+    mid = (high + low) // 2
+    
+    if arr[mid]<arr[mid+1]:
+        low=mid+1
     else:
         result=mid
         high=mid-1
 print(result)
-
-
-        
         
