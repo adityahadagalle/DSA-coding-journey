@@ -1577,20 +1577,42 @@ from collections import Counter
 #     if hash[ch]<hash1[ch1]:
 #         print("True")
  
- 
-arr=[1,2,3,4,5]
-tar=4
+#binary search#############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################333333333333333333333333333333333333333333333
+# arr = [1, 3, 6, 8, 10]
+# target = 5
+# low=0
+# result=-1
+# high=len(arr)-1
+# while low<=high:
+#     mid=(high+low)//2
+
+#     if arr[mid] <target:
+#         low=mid+1
+#     else:
+#         result=mid
+#         high=mid-1
+# print(result)
+  
+
+#First and Last Position problem
+arr = [1,3,3,3,3,3,5]
+target = 3
 low=0
+result=-1
 high=len(arr)-1
 while low<=high:
     mid=(high+low)//2
-    if arr[mid]==tar:
-        print(mid)
-        break
-    elif arr[mid] <tar:
-        low=mid+1
-    else:
+
+    if arr[mid]>target:
         high=mid-1
-print("-1")
-print("+-1")
+    
+    elif arr[mid]<target:
+            low=mid+1
+    else:
+        result=mid
+        high=mid-1
+print(result)
+
+
+        
         
