@@ -1640,5 +1640,5 @@ while low < high:
         high=mid
     elif arr[mid]>arr[high]:
         low=mid+1
-print(arr[low])))
+print(arr[low]) 
         
