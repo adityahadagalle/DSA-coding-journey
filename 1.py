@@ -1630,15 +1630,28 @@ from collections import Counter
 # print(result)
         
         
-arr = [7, 8, 9, 1, 2, 3, 4, 5, 6]
-low = 0
-high = len(arr) - 1        
-while low < high:
-    mid = (high + low) // 2
+# arr = [7, 8, 9, 1, 2, 3, 4, 5, 6]
+# low = 0
+# high = len(arr) - 1        
+# while low < high:
+#     mid = (high + low) // 2
     
-    if arr[mid]<arr[high]:
-        high=mid
-    elif arr[mid]>arr[high]:
-        low=mid+1
-print(arr[low]) 
+#     if arr[mid]<arr[high]:
+#         high=mid
+#     elif arr[mid]>arr[high]:
+#         low=mid+1
+# print(arr[low]) 
         
+arr = [6, 7, 8, 1, 2, 3, 4, 5]
+target = 6
+low=0
+high=len(arr)-1
+while low<=high:
+    mid=(high+low)//2
+    if arr[mid]==target:
+        print(mid)
+        break
+    elif arr[high]>=target:
+        low=mid+1
+    else:
+        high=mid-1
