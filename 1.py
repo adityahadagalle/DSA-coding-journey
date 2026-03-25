@@ -1642,28 +1642,76 @@ from collections import Counter
 #         low=mid+1
 # print(arr[low]) 
         
-arr = [7,8,9,1,2,3,4,5,6]
-target = 1
+# arr = [7,8,9,1,2,3,4,5,6]
+# target = 1
 
-low = 0
-high = len(arr) - 1   # ❗ fix
+# low = 0
+# high = len(arr) - 1   # ❗ fix
+
+# while low <= high:
+#     mid = (low + high) // 2
+    
+#     if arr[mid] == target:
+#         print(mid)
+#         break
+    
+#     elif arr[low] <= arr[mid]:   # ❗ better condition
+#         if arr[low] <= target <= arr[mid]:
+#             high = mid - 1
+#         else:
+#             low = mid + 1
+    
+#     else:
+#         if arr[mid] <= target <= arr[high]:   # ❗ missing check
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+        
+# arr = [3,1,2,3,3,3,3]
+# target = 0
+
+# low = 0
+# high = len(arr) - 1   # ❗ fix
+
+# while low <= high:
+#     mid = (low + high) // 2
+    
+#     if arr[mid] == target:
+#         print(mid)
+#         break
+#     if arr[mid]==arr[low]==arr[high]:
+#         low=low+1
+#         high=high-1
+#         continue
+#     elif arr[mid]>arr[low]:
+#         if arr[low]<=target<=arr[mid]:
+#             high=mid-1
+#         else:
+#             low=mid+1
+#     else:
+#         if arr[high]>=target>=arr[mid]:
+#             low=mid+1
+#         else:
+#             high=mid-1
+piles = [3, 6, 7, 11]
+h = 8
+
+low = 1
+high = max(piles)
+
+ans = 0
 
 while low <= high:
     mid = (low + high) // 2
-    
-    if arr[mid] == target:
-        print(mid)
-        break
-    
-    elif arr[low] <= arr[mid]:   # ❗ better condition
-        if arr[low] <= target <= arr[mid]:
-            high = mid - 1
+    total_hours=0
+    for i in piles:
+        if i%mid==0:
+            total_hours+=i//mid
         else:
-            low = mid + 1
-    
+            total_hours+=(i//mid)+1
+    if total_hours<=h:
+        ans=mid
+        high=mid-1
     else:
-        if arr[mid] <= target <= arr[high]:   # ❗ missing check
-            low = mid + 1
-        else:
-            high = mid - 1
-        
+        low=mid+1
+print(ans)
