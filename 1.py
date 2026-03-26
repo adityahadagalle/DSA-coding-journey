@@ -1693,26 +1693,73 @@ from collections import Counter
 #             low=mid+1
 #         else:
 #             high=mid-1
-piles = [3, 6, 7, 11]
-h = 8
 
-low = 1
-high = max(piles)
 
-ans = 0
 
-while low <= high:
-    mid = (low + high) // 2
-    total_hours=0
-    for i in piles:
-        if i%mid==0:
-            total_hours+=i//mid
-        else:
-            total_hours+=(i//mid)+1
-    if total_hours<=h:
-        ans=mid
-        high=mid-1
-    else:
-        low=mid+1
-print(ans)
-print(ans)
+
+# piles = [3, 6, 7, 11]
+# h = 8
+
+# low = 1
+# high = max(piles)
+
+# ans = 0
+
+# while low <= high:
+#     mid = (low + high) // 2
+#     total_hours=0
+#     for i in piles:
+#         if i%mid==0:
+#             total_hours+=i//mid
+#         else:
+#             total_hours+=(i//mid)+1
+#     if total_hours<=h:
+#         ans=mid
+#         high=mid-1
+#     else:
+#         low=mid+1
+# print(ans)
+# print(ans)
+
+
+from typing import List
+
+class Solution:
+    def singleNonDuplicate(self, arr: List[int]) -> int:
+        
+        if len(arr) == 1:
+            return arr[0]
+
+        low = 0
+        high = len(arr) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+
+            if mid == 0:
+                if arr[mid] != arr[mid+1]:
+                    return arr[mid]
+                else:
+                    low = mid + 1
+                    continue
+
+            if mid == len(arr) - 1:
+                if arr[mid] != arr[mid-1]:
+                    return arr[mid]
+                else:
+                    high = mid - 1
+                    continue
+
+            if arr[mid] != arr[mid-1] and arr[mid] != arr[mid+1]:
+                return arr[mid]
+
+            if mid % 2 == 0:
+                if arr[mid] == arr[mid+1]:
+                    low = mid + 2
+                else:
+                    high = mid - 2
+            else:
+                if arr[mid] == arr[mid-1]:
+                    low = mid + 1
+                else:
+                    high = mid - 1
