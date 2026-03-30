@@ -1722,45 +1722,59 @@ from collections import Counter
 # print(ans)
 
 
-from typing import List
+# from typing import List
 
-class Solution:
-    def singleNonDuplicate(self, arr: List[int]) -> int:
+# class Solution:
+#     def singleNonDuplicate(self, arr: List[int]) -> int:
         
-        if len(arr) == 1:
-            return arr[0]
+#         if len(arr) == 1:
+#             return arr[0]
 
-        low = 0
-        high = len(arr) - 1
+#         low = 0
+#         high = len(arr) - 1
 
-        while low <= high:
-            mid = (low + high) // 2
+#         while low <= high:
+#             mid = (low + high) // 2
 
-            if mid == 0:
-                if arr[mid] != arr[mid+1]:
-                    return arr[mid]
-                else:
-                    low = mid + 1
-                    continue
+#             if mid == 0:
+#                 if arr[mid] != arr[mid+1]:
+#                     return arr[mid]
+#                 else:
+#                     low = mid + 1
+#                     continue
 
-            if mid == len(arr) - 1:
-                if arr[mid] != arr[mid-1]:
-                    return arr[mid]
-                else:
-                    high = mid - 1
-                    continue
+#             if mid == len(arr) - 1:
+#                 if arr[mid] != arr[mid-1]:
+#                     return arr[mid]
+#                 else:
+#                     high = mid - 1
+#                     continue
 
-            if arr[mid] != arr[mid-1] and arr[mid] != arr[mid+1]:
-                return arr[mid]
+#             if arr[mid] != arr[mid-1] and arr[mid] != arr[mid+1]:
+#                 return arr[mid]
 
-            if mid % 2 == 0:
-                if arr[mid] == arr[mid+1]:
-                    low = mid + 2
-                else:
-                    high = mid - 2
-            else:
-                if arr[mid] == arr[mid-1]:
-                    low = mid + 1
-                else:
-                    high = mid - 1
-                    print("hello")
+#             if mid % 2 == 0:
+#                 if arr[mid] == arr[mid+1]:
+#                     low = mid + 2
+#                 else:
+#                     high = mid - 2
+#             else:
+#                 if arr[mid] == arr[mid-1]:
+#                     low = mid + 1
+#                 else:
+#                     high = mid - 1
+#                     print("hello")
+
+arr=[12,34,67,90]
+low=max(arr)
+high=sum(arr)
+summ=0
+while low<=high:
+    mid=(high+low)//2
+    for i in range(len(arr)):
+        summ+=arr[i]
+        if mid<summ:
+            low=mid+1
+        elif mid>summ:
+            high=mid-1
+print(mid)
