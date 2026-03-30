@@ -1765,16 +1765,56 @@ from collections import Counter
 #                     high = mid - 1
 #                     print("hello")
 
-arr=[12,34,67,90]
-low=max(arr)
-high=sum(arr)
-summ=0
-while low<=high:
-    mid=(high+low)//2
+# arr = [12, 34, 67, 90]
+# m = 2
+
+# low = max(arr)
+# high = sum(arr)
+# ans = 0
+
+# while low <= high:
+#     mid = (low + high) // 2
+    
+#     students = 1
+#     pages = 0
+    
+#     for i in range(len(arr)):
+#         if pages + arr[i] <= mid:
+#             pages += arr[i]
+#         else:
+#             students += 1
+#             pages = arr[i]
+    
+#     if students <= m:
+#         ans = mid
+#         high = mid - 1
+#     else:
+#         low = mid + 1
+
+# print(ans)
+
+
+arr = [1,2,3,4,5,6,7,8,9,10]
+days= 5
+
+low = max(arr)
+high = sum(arr)
+ans = 0
+
+while low <= high:
+    mid = (low + high) // 2
+    taken_days=1
+    capacity=0
     for i in range(len(arr)):
-        summ+=arr[i]
-        if mid<summ:
-            low=mid+1
-        elif mid>summ:
-            high=mid-1
-print(mid)
+        if capacity+arr[i]<=mid:
+            capacity+=arr[i]
+        else:
+            taken_days+=1
+            capacity=arr[i]
+    if taken_days<=days:
+        ans=mid
+        high=mid-1
+    else:
+        low=mid+1
+print(ans)
+        
