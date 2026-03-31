@@ -1820,74 +1820,58 @@ from collections import Counter
         
         
         
-        
-# arr = [1,2,3,3,3,4,5]
+# arr = [1,2,3,3,3,3,3,3,3,3,4,5]
 
+# tar = 3
 
-
+# # -------- First Occurrence --------
 # low = 0
-# high = len(arr)-1
-# first=0
-# last=0
-# tar=3
+# high = len(arr) - 1
+# first = -1
+
 # while low <= high:
-#     mid = (low + high) // 2   
+#     mid = (low + high) // 2
     
-#     if arr[mid]==tar:
-#         high=mid-1
-#     elif arr[mid]<tar:
-#         low=mid+1
-#         if arr[low]==tar:
-#             first=low
-#     elif arr[mid]>tar:
-#         high=mid-1
+#     if arr[mid] == tar:
+#         first = mid
+#         high = mid - 1
+#     elif arr[mid] < tar:
+#         low = mid + 1
+#     else:
+#         high = mid - 1
+
+# # -------- Last Occurrence --------
+# low = 0
+# high = len(arr) - 1
+# last = -1
+
+# while low <= high:
+#     mid = (low + high) // 2
     
-#     if arr[mid]==tar:
-#         low=mid+1
- 
-#     elif arr[mid]>tar:
-#         high=mid-1 
-#         if arr[low]==tar:
-#             last=low  
-        
-         
+#     if arr[mid] == tar:
+#         last = mid
+#         low = mid + 1
+#     elif arr[mid] < tar:
+#         low = mid + 1
+#     else:
+#         high = mid - 1
 
-# print((last))
+# print(last ,first)
 
-arr = [1,2,3,3,3,3,3,3,3,3,4,5]
-
-tar = 3
-
-# -------- First Occurrence --------
+arr = [3,4,5,1,2]
 low = 0
 high = len(arr) - 1
-first = -1
+
 
 while low <= high:
     mid = (low + high) // 2
     
-    if arr[mid] == tar:
-        first = mid
-        high = mid - 1
-    elif arr[mid] < tar:
-        low = mid + 1
+    if arr[mid]<arr[high] and arr[mid]<arr[low]:
+        print([mid])
+        break
+    if arr[mid]>arr[high]:
+            low=mid+1
     else:
-        high = mid - 1
-
-# -------- Last Occurrence --------
-low = 0
-high = len(arr) - 1
-last = -1
-
-while low <= high:
-    mid = (low + high) // 2
-    
-    if arr[mid] == tar:
-        last = mid
-        low = mid + 1
-    elif arr[mid] < tar:
-        low = mid + 1
-    else:
-        high = mid - 1
-
-print(last - first + 1)
+        high=mid-1
+print(mid)
+            
