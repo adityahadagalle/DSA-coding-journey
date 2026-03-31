@@ -1794,27 +1794,100 @@ from collections import Counter
 # print(ans)
 
 
-arr = [1,2,3,4,5,6,7,8,9,10]
-days= 5
+# arr = [1,2,3,4,5,6,7,8,9,10]
+# days= 5
 
-low = max(arr)
-high = sum(arr)
-ans = 0
+# low = max(arr)
+# high = sum(arr)
+# ans = 0
+
+# while low <= high:
+#     mid = (low + high) // 2
+#     taken_days=1
+#     capacity=0
+#     for i in range(len(arr)):
+#         if capacity+arr[i]<=mid:
+#             capacity+=arr[i]
+#         else:
+#             taken_days+=1
+#             capacity=arr[i]
+#     if taken_days<=days:
+#         ans=mid
+#         high=mid-1
+#     else:
+#         low=mid+1
+# print(ans)
+        
+        
+        
+        
+# arr = [1,2,3,3,3,4,5]
+
+
+
+# low = 0
+# high = len(arr)-1
+# first=0
+# last=0
+# tar=3
+# while low <= high:
+#     mid = (low + high) // 2   
+    
+#     if arr[mid]==tar:
+#         high=mid-1
+#     elif arr[mid]<tar:
+#         low=mid+1
+#         if arr[low]==tar:
+#             first=low
+#     elif arr[mid]>tar:
+#         high=mid-1
+    
+#     if arr[mid]==tar:
+#         low=mid+1
+ 
+#     elif arr[mid]>tar:
+#         high=mid-1 
+#         if arr[low]==tar:
+#             last=low  
+        
+         
+
+# print((last))
+
+arr = [1,2,3,3,3,3,3,3,3,3,4,5]
+
+tar = 3
+
+# -------- First Occurrence --------
+low = 0
+high = len(arr) - 1
+first = -1
 
 while low <= high:
     mid = (low + high) // 2
-    taken_days=1
-    capacity=0
-    for i in range(len(arr)):
-        if capacity+arr[i]<=mid:
-            capacity+=arr[i]
-        else:
-            taken_days+=1
-            capacity=arr[i]
-    if taken_days<=days:
-        ans=mid
-        high=mid-1
+    
+    if arr[mid] == tar:
+        first = mid
+        high = mid - 1
+    elif arr[mid] < tar:
+        low = mid + 1
     else:
-        low=mid+1
-print(ans)
-        
+        high = mid - 1
+
+# -------- Last Occurrence --------
+low = 0
+high = len(arr) - 1
+last = -1
+
+while low <= high:
+    mid = (low + high) // 2
+    
+    if arr[mid] == tar:
+        last = mid
+        low = mid + 1
+    elif arr[mid] < tar:
+        low = mid + 1
+    else:
+        high = mid - 1
+
+print(last - first + 1)
