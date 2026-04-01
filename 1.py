@@ -1908,28 +1908,51 @@ from collections import Counter
         
 #         return ans
 
-arr = [1,2,3,4,5,6,7,8,9,10]
+        # arr = weights
+        
+        # low = max(arr)
+        # high = sum(arr)
 
-days=5
-
-low = max(arr)
-high = sum(arr)
-
+        # while low <= high:
+        #     summ = 0
+        #     taken = 1
+        #     mid = (low + high) // 2
+            
+        #     for i in range(len(arr)):
+        #         if summ + arr[i] <= mid:
+        #             summ += arr[i]
+        #         else:
+        #             summ = arr[i]
+        #             taken += 1
+            
+        #     if taken <= days:
+        #         ans = mid
+        #         high = mid - 1
+        #     else:
+        #         low = mid + 1
+        
+        # return ans
+               
+               
+arr = [1, 2, 4, 8, 9]
+k = 3
+low = 1
+high = arr[-1] - arr[0]
+ans=-1
 while low <= high:
-    summ=0
+
     taken=1
-    mid = (low + high) // 2
-    for i in range(len(arr)):
-        if summ+arr[i]<=mid:
-            summ+=arr[i]
-        else:
-            summ=arr[i]
+    mid = (low + high) // 2 
+    first=arr[0] 
+    for i in  range(1,len(arr)):
+        
+        if arr[i]-first>=mid:
             taken+=1
-    if taken<=days:
+            first=arr[i]
+    if taken>=k:
         ans=mid
-        high=mid-1
-        print(mid)
-    else:
         low=mid+1
-# print(ans)
+    else:
+        high=mid-1
+print(ans)
                

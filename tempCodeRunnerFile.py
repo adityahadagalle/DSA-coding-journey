@@ -1,1 +1,1 @@
-print((last-first)+1)
+print(ans)
