@@ -1858,20 +1858,52 @@ from collections import Counter
 
 # print(last ,first)
 
-arr = [3,4,5,1,2]
-low = 0
-high = len(arr) - 1
+# arr = [3,4,5,1,2]
+# low = 0
+# high = len(arr) - 1
 
 
-while low <= high:
-    mid = (low + high) // 2
+# while low <= high:
+#     mid = (low + high) // 2
     
-    if arr[mid]<arr[high] and arr[mid]<arr[low]:
-        print([mid])
-        break
-    if arr[mid]>arr[high]:
-            low=mid+1
-    else:
-        high=mid-1
-print(mid)
+#     if arr[mid]<arr[high] and arr[mid]<arr[low]:
+#         print([mid])
+#         break
+#     if arr[mid]>arr[high]:
+#             low=mid+1
+#     else:
+#         high=mid-1
+# print(mid)
             
+            
+class Solution:
+    def minDays(self, bloomDay, m, k):
+        
+        arr = bloomDay
+        low = min(arr)
+        high = max(arr)
+
+        ans = -1
+        
+        while low <= high:
+            mid = (low + high) // 2
+            
+            taken = 0     
+            count = 0    
+            
+            for i in range(len(arr)):
+                if arr[i] <= mid:
+                    count += 1
+                    if count == k:    
+                        taken += 1
+                        count = 0
+                else:
+                    count = 0          
+            
+            if m <= taken:
+                ans = mid
+                high = mid - 1
+            else:
+                low = mid + 1
+        
+        return ans
