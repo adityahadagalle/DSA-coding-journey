@@ -1876,34 +1876,60 @@ from collections import Counter
 # print(mid)
             
             
-class Solution:
-    def minDays(self, bloomDay, m, k):
+# class Solution:
+#     def minDays(self, bloomDay, m, k):
         
-        arr = bloomDay
-        low = min(arr)
-        high = max(arr)
+#         arr = bloomDay
+#         low = min(arr)
+#         high = max(arr)
 
-        ans = -1
+#         ans = -1
         
-        while low <= high:
-            mid = (low + high) // 2
+#         while low <= high:
+#             mid = (low + high) // 2
             
-            taken = 0     
-            count = 0    
+#             taken = 0     
+#             count = 0    
             
-            for i in range(len(arr)):
-                if arr[i] <= mid:
-                    count += 1
-                    if count == k:    
-                        taken += 1
-                        count = 0
-                else:
-                    count = 0          
+#             for i in range(len(arr)):
+#                 if arr[i] <= mid:
+#                     count += 1
+#                     if count == k:    
+#                         taken += 1
+#                         count = 0
+#                 else:
+#                     count = 0          
             
-            if m <= taken:
-                ans = mid
-                high = mid - 1
-            else:
-                low = mid + 1
+#             if m <= taken:
+#                 ans = mid
+#                 high = mid - 1
+#             else:
+#                 low = mid + 1
         
-        return ans
+#         return ans
+
+arr = [1,2,3,4,5,6,7,8,9,10]
+
+days=5
+
+low = max(arr)
+high = sum(arr)
+
+while low <= high:
+    summ=0
+    taken=1
+    mid = (low + high) // 2
+    for i in range(len(arr)):
+        if summ+arr[i]<=mid:
+            summ+=arr[i]
+        else:
+            summ=arr[i]
+            taken+=1
+    if taken<=days:
+        ans=mid
+        high=mid-1
+        print(mid)
+    else:
+        low=mid+1
+# print(ans)
+               
