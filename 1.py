@@ -1934,25 +1934,48 @@ from collections import Counter
         # return ans
                
                
-arr = [1, 2, 4, 8, 9]
-k = 3
-low = 1
-high = arr[-1] - arr[0]
-ans=-1
+# arr = [1, 2, 4, 8, 9]
+# k = 3
+# low = 1
+# high = arr[-1] - arr[0]
+# ans=-1
+# while low <= high:
+
+#     taken=1
+#     mid = (low + high) // 2 
+#     first=arr[0] 
+#     for i in  range(1,len(arr)):
+        
+#         if arr[i]-first>=mid:
+#             taken+=1
+#             first=arr[i]
+#     if taken>=k:
+#         ans=mid
+#         low=mid+1
+#     else:
+#         high=mid-1
+# print(ans)
+               
+               
+arr = [10,20,30,40]
+k = 2
+low = max(arr)
+high =sum(arr)
+ans=0
 while low <= high:
 
     taken=1
     mid = (low + high) // 2 
-    first=arr[0] 
-    for i in  range(1,len(arr)):
-        
-        if arr[i]-first>=mid:
+    summ=0
+    for i in  range(len(arr)): 
+        if arr[i]+summ<=mid:
+            summ+=arr[i]
+        else:
+            summ=arr[i]
             taken+=1
-            first=arr[i]
-    if taken>=k:
-        ans=mid
-        low=mid+1
-    else:
+    if taken<=k:
         high=mid-1
-print(ans)
-               
+        ans=mid
+    else:
+        low=mid+1
+print(ans)   
