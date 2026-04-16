@@ -1957,25 +1957,66 @@ from collections import Counter
 # print(ans)
                
                
-arr = [10,20,30,40]
-k = 2
-low = max(arr)
-high =sum(arr)
-ans=0
-while low <= high:
+# arr = [10,20,30,40]
+# k = 2
+# low = max(arr)
+# high =sum(arr)
+# ans=0
+# while low <= high:
 
-    taken=1
-    mid = (low + high) // 2 
-    summ=0
-    for i in  range(len(arr)): 
-        if arr[i]+summ<=mid:
-            summ+=arr[i]
-        else:
-            summ=arr[i]
-            taken+=1
-    if taken<=k:
-        high=mid-1
-        ans=mid
-    else:
-        low=mid+1
-print(ans)   
+#     taken=1
+#     mid = (low + high) // 2 
+#     summ=0
+#     for i in  range(len(arr)): 
+#         if arr[i]+summ<=mid:
+#             summ+=arr[i]
+#         else:
+#             summ=arr[i]
+#             taken+=1
+#     if taken<=k:
+#         high=mid-1
+#         ans=mid
+#     else:
+#         low=mid+1
+# print(ans)   
+
+#######linked_list fast and slow pointers ############################################################################################################################################################################################################
+# Node class
+
+
+
+
+
+
+class ListNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+
+
+a = ListNode(1)
+b = ListNode(2)
+c = ListNode(0)
+d = ListNode(-4)
+
+a.next = b
+b.next = c
+c.next = d
+d.next = b   #
+
+head = a
+
+
+slow = head
+fast = head
+
+while fast is not None and fast.next is not None:
+    slow = slow.next
+    fast = fast.next.next
+
+    if slow == fast:
+        print(True)
+        break
+else:
+    print(False)
