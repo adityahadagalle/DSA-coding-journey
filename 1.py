@@ -1985,38 +1985,138 @@ from collections import Counter
 
 
 
+# class ListNode:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
 
 
 
-class ListNode:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+# a = ListNode(1)
+# b = ListNode(2)
+# c = ListNode(0)
+# d = ListNode(-4)
+
+# a.next = b
+# b.next = c
+# c.next = d
+# d.next = b   #
+
+# head = a
+
+
+# slow = head
+# fast = head
+
+# while fast is not None and fast.next is not None:
+#     slow = slow.next
+#     fast = fast.next.next
+
+#     if slow == fast:
+#         print(True)
+#         break
+# else:
+#     print(False)
+    
+    
+# class ListNode:
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+
+
+# a = ListNode(1)
+# b = ListNode(2)
+# c = ListNode(3)
+# d = ListNode(3)
+
+# a.next = b
+# b.next = c
+# c.next = d
+# d.next = b  
+
+# head = 0                                 #fast.next is not None:  this is to check is there any cycle or not
+
+
+# slow = head
+# fast = head
+
+# while fast is not None and fast.next is not None:
+#     slow = slow.next
+#     fast = fast.next.next
+
+#     if slow == fast:
+#         slow = head
+        
+#         while slow != fast:
+#             slow = slow.next
+#             fast = fast.next
+        
+#         print(slow.val)  
+#         break
+    
+     
+# arr = [1, 1, 3, 5, 7]
+
+# slow = arr[0]
+# fast = arr[0]
+
+# # Step 1: detect cycle
+# while True:
+#     slow = arr[slow]
+#     fast = arr[arr[fast]]
+
+#     if slow == fast:
+#         break
+
+# # Step 2: find duplicate (cycle start)
+# slow = arr[0]
+
+# while slow != fast:
+#     slow = arr[slow]
+#     fast = arr[fast]
+
+# print(slow)    
+
+# def funn(n):
+    
+#     summ=0
+    
+#     while n>0:
+#         d=n%10
+#         s=d**2
+#         summ+=s
+#         n=n//10
+#     return summ
+
+# arr =20
+
+# slow = arr
+# fast = arr
+
+# while (fast!=1):
+#     slow=funn(slow)
+#     fast=funn(fast)
+#     fast=funn(fast)
+    
+#     if fast==1:
+#         print(True)
+#         break
+#     if fast==slow:
+#         print(False)
+#         break
 
 
 
-a = ListNode(1)
-b = ListNode(2)
-c = ListNode(0)
-d = ListNode(-4)
+    
 
-a.next = b
-b.next = c
-c.next = d
-d.next = b   #
+def middleNode(self, head):
+    slow = head
+    fast = head
 
-head = a
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
 
-
-slow = head
-fast = head
-
-while fast is not None and fast.next is not None:
-    slow = slow.next
-    fast = fast.next.next
-
-    if slow == fast:
-        print(True)
-        break
-else:
-    print(False)
+        
+    return slow
