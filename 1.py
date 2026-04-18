@@ -2120,3 +2120,4 @@ def middleNode(self, head):
 
         
     return slow
+print(hi)
