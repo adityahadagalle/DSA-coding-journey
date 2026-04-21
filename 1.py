@@ -2144,3 +2144,4 @@ class Solution:
 
         return dummy.next
 print("hi")
+print("HI")
