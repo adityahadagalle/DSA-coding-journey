@@ -2122,25 +2122,80 @@ from collections import Counter
 #     return slow
 
 
-class Solution:
-    def removeNthFromEnd(self, head, n):
-        dummy = ListNode(0)
-        dummy.next = head
+# class Solution:
+#     def removeNthFromEnd(self, head, n):
+#         dummy = ListNode(0)
+#         dummy.next = head
 
-        slow = dummy
-        fast = dummy
+#         slow = dummy
+#         fast = dummy
 
-        # move fast n steps
-        for _ in range(n):
-            fast = fast.next
+#         # move fast n steps
+#         for _ in range(n):
+#             fast = fast.next
 
-        # move both
-        while fast.next:
-            slow = slow.next
-            fast = fast.next
+#         # move both
+#         while fast.next:
+#             slow = slow.next
+#             fast = fast.next
 
-        # delete node
-        slow.next = slow.next.next
+#         # delete node
+#         slow.next = slow.next.next
 
-        return dummy.next
-print("hi")
+#         return dummy.next
+
+
+# class Solution:
+#     def isPalindrome(self, head: ListNode) -> bool:
+#         if not head or not head.next:
+#             return True
+
+#         # STEP 1: Find the middle using Fast & Slow pointers
+#         slow = head
+#         fast = head
+#         while fast and fast.next:
+#             slow = slow.next
+#             fast = fast.next.next
+
+#         # STEP 2: Reverse the second half in place
+#         # 'slow' is currently the start of the second half
+#         prev = None
+#         curr = slow
+#         while curr:
+#             next_temp = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = next_temp
+        
+#         # 'prev' is now the head of the reversed second half
+        
+#         # STEP 3: Compare the two halves
+#         first_half = head
+#         second_half = prev
+        
+#         result = True
+#         while second_half: # We only need to check the length of the second half
+#             if first_half.val != second_half.val:
+#                 result = False
+#                 break
+#             first_half = first_half.next
+#             second_half = second_half.next
+            
+#         # (Optional) STEP 4: Restore the list (Good practice!)
+#         # You could reverse the second half back to original here
+        
+#         return result
+def fun(n):
+    if n == 1:
+        return 1
+    ans = fun(n - 1)
+    return n *ans
+print(fun(4))
+  
+  
+def fun(n):
+    if n == 1:
+        return 1
+    ans = fun(n - 1)
+    return n +ans
+print(fun(4))   
