@@ -2231,14 +2231,14 @@ from collections import Counter
 # fun(6)
 
 
-def fun(n):
-    if n==1:
-        print(1)
-        return 
-    print(n)
+# def fun(n):
+#     if n==1:
+#         print(1)
+#         return 
+#     print(n)
 
-    fun(n-1)
-fun(7)
+#     fun(n-1)
+# fun(7)
 
 # print(fun(6)) 
 
@@ -2250,3 +2250,11 @@ fun(7)
 #     return fun(arr,n-1)
 # print(fun(arr=[1,2,6,4],n=4))
 
+def fun(arr,n):
+    if n==1:
+        return 1
+    last=arr[n-1]
+    ans=fun(arr,n-1)
+    return ans+last
+    
+print(fun(arr=[1,2,3,4],n=4))
