@@ -2185,17 +2185,53 @@ from collections import Counter
 #         # You could reverse the second half back to original here
         
 #         return result
-def fun(n):
-    if n == 1:
-        return 1
-    ans = fun(n - 1)
-    return n *ans
-print(fun(4))
+
+
+##########3###########################################################################################################################################################################################################################################################33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+
+#recursion
+# def fun(n):
+#     if n == 1:
+#         return 1
+#     ans = fun(n - 1)
+#     return n *ans
+# print(fun(4))
   
   
+# def fun(n):
+#     if n == 1:
+#         return 1
+#     ans = fun(n - 1)
+#     return n +ans
+# print(fun(4))   
+
+# def reverse_string(s):
+#     if len(s) == 0:   # base case
+#         return ""
+#     return reverse_string(s[1:]) + s[0]
+
+# print(reverse_string("hello"))
+
+# def fun(n):
+#     if n == 1:
+#         return 1
+#     if n==0:
+#         return 0 
+#     ans = fun(n - 1)+fun(n-2)
+#     return ans
+# print(fun(6)) 
+
 def fun(n):
     if n == 1:
-        return 1
-    ans = fun(n - 1)
-    return n +ans
-print(fun(4))   
+        print(1)
+        return
+    
+    fun(n-1)
+    print(n)
+
+print(fun(6)) 
+
+
+def fun(arr,n):
+    if n==1:
+        
