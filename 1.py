@@ -2221,17 +2221,32 @@ from collections import Counter
 #     return ans
 # print(fun(6)) 
 
-def fun(n):
-    if n == 1:
-        print(1)
-        return
+# def fun(n):
+#     if n == 1:
+#         print(1)
+#         return
     
-    fun(n-1)
+#     fun(n-1)
+#     print(n)
+# fun(6)
+
+
+def fun(n):
+    if n==1:
+        print(1)
+        return 
     print(n)
 
-print(fun(6)) 
+    fun(n-1)
+fun(7)
 
+# print(fun(6)) 
 
-def fun(arr,n):
-    if n==1:
-        
+# def fun(arr,n):
+#     if n==1:
+#         return True
+#     if arr[n-1]<arr[n-2]:
+#         return False
+#     return fun(arr,n-1)
+# print(fun(arr=[1,2,6,4],n=4))
+
