@@ -2250,11 +2250,23 @@ from collections import Counter
 #     return fun(arr,n-1)
 # print(fun(arr=[1,2,6,4],n=4))
 
-def fun(arr,n):
-    if n==1:
-        return 1
-    last=arr[n-1]
-    ans=fun(arr,n-1)
-    return ans+last
+
+
+# def fun(arr,n):
+#     if n==1:
+#         return 1
+#     last=arr[n-1]
+#     ans=fun(arr,n-1)
+#     return ans+last
     
-print(fun(arr=[1,2,3,4],n=4))
+# print(fun(arr=[1,2,3,4],n=4))
+
+
+def fun(s,n):
+    if len(s) == 0:
+        return "" 
+    k = ""
+    k = k + s[-1]
+
+    return k+fun(s[:-1],n-1)
+print((fun(s="hello",n=5)))
