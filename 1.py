@@ -2262,11 +2262,35 @@ from collections import Counter
 # print(fun(arr=[1,2,3,4],n=4))
 
 
-def fun(s,n):
-    if len(s) == 0:
-        return "" 
-    k = ""
-    k = k + s[-1]
+# def fun(s,n):
+#     if len(s) == 0:
+#         return "" 
+#     k = ""
+#     k = k + s[-1]
 
-    return k+fun(s[:-1],n-1)
-print((fun(s="hello",n=5)))
+#     return k+fun(s[:-1],n-1)
+# print((fun(s="hello",n=5)))
+
+# def fun(arr,n):
+#     if n==1:
+#         return arr
+#     d=arr%10
+#     ans=fun(arr//10,n-1)
+#     return ans+d
+
+# print(fun(arr=2,n=4)) 
+
+
+def fun(s,l):
+    if len(s)==0:
+        return ""
+    k=""
+    last=s[-1]
+    if last!=l:
+        k+=last
+    return k+fun(s[:-1],l)
+
+    
+print(fun(s="apple",l="p"))
+        
+        
