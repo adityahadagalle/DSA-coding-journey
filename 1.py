@@ -2291,6 +2291,6 @@ def fun(s,l):
     return k+fun(s[:-1],l)
 
     
-print(fun(s="apple",l="p"))
+print(fun(s="apple",l="p")
         
         
