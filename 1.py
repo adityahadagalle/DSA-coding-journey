@@ -2281,16 +2281,82 @@ from collections import Counter
 # print(fun(arr=2,n=4)) 
 
 
-def fun(s,l):
-    if len(s)==0:
-        return ""
-    k=""
-    last=s[-1]
-    if last!=l:
-        k+=last
-    return k+fun(s[:-1],l)
+# def fun(s,l):
+#     if len(s)==0:
+#         return ""
+#     k=""
+#     last=s[-1]
+#     if last!=l:
+#         k+=last
+#     return k+fun(s[:-1],l)
 
     
-print(fun(s="apple",l="p"))
+# print(fun(s="apple",l="p"))
         
+        
+        
+# class Solution:
+#     def generateParenthesis(self, n: int):
+#         res = []
+
+#         def backtrack(curr, open_count, close_count):
+#             # base case
+#             if len(curr) == 2 * n:
+#                 res.append(curr)
+#                 return
+            
+#             # add '('
+#             if open_count < n:
+#                 backtrack(curr + "(", open_count + 1, close_count)
+            
+#             # add ')'
+#             if close_count < open_count:
+#                 backtrack(curr + ")", open_count, close_count + 1)
+
+#         backtrack("", 0, 0)
+#         return res        
+    
+# class Solution:
+    
+#     def searchleftright(self, n: int):
+#         res = []
+
+#         def backtrack(curr,left_count,right_count):
+#             # base case
+#             if len(curr) == 2 * n:
+#                 res.append(curr)
+#                 return    
+    
+#             if left_count<2:
+#                 backtrack(curr+1,left_count+1,right_count)
+#             if right_count<2:
+#                 backtrack(curr+1,left_count,right_count+1)
+            
+
+#         backtrack("",0,0)  
+#         return res
+    
+    
+def searchleftright(n):
+    res = []
+
+    def backtrack(curr, left_count, right_count):
+        # base case
+        if len(curr) == 2 * n:
+            res.append(curr)
+            return    
+
+        if left_count < 2:
+            backtrack(curr + "L", left_count + 1, right_count)
+
+        if right_count < 2:
+            backtrack(curr + "R", left_count, right_count + 1)
+
+    backtrack("", 0, 0)
+    return res
+
+
+print(searchleftright(2))
+
+            
         
