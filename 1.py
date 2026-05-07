@@ -2399,4 +2399,4 @@ def searchleftright(n):
     return res
 
 
-print(searchleftright(2))
+print(searchleftright(2)
