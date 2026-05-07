@@ -2337,26 +2337,46 @@ from collections import Counter
 #         return res
     
     
+# def searchleftright(n):
+#     res = []
+
+#     def backtrack(curr, left_count, right_count):
+#         # base case
+#         if len(curr) == 2 * n:
+#             res.append(curr)
+#             return    
+
+#         if left_count < 2:
+#             backtrack(curr + "L", left_count + 1, right_count)
+
+#         if right_count < 2:
+#             backtrack(curr + "R", left_count, right_count + 1)
+
+#     backtrack("", 0, 0)
+#     return res
+
+
+# print(searchleftright(2))
+
+
+
+            
 def searchleftright(n):
     res = []
 
-    def backtrack(curr, left_count, right_count):
+    def backtrack(curr, left_count, arr):
         # base case
         if len(curr) == 2 * n:
             res.append(curr)
             return    
 
-        if left_count < 2:
-            backtrack(curr + "L", left_count + 1, right_count)
+        if left_count < 1:
+            backtrack(arr[left_count], left_count + 1, arr)
 
-        if right_count < 2:
-            backtrack(curr + "R", left_count, right_count + 1)
 
-    backtrack("", 0, 0)
+
+    backtrack(0, 0, arr=[1,2])
     return res
 
 
-print(searchleftright(2))
-
-            
-        
+print(searchleftright(2))        
