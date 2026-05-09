@@ -2383,32 +2383,85 @@ from collections import Counter
 # print(searchleftright(2))        
 
 
-def letterCombinations(digits):
+# def letterCombinations(digits):
     
-    if not digits:
-        return []
+#     if not digits:
+#         return []
 
-    phone = {
-        "2": "abc",
-        "3": "def",
-        "4": "ghi",
-        "5": "jkl",
-        "6": "mno",
-        "7": "pqrs",
-        "8": "tuv",
-        "9": "wxyz"
-    }
+#     phone = {
+#         "2": "abc",
+#         "3": "def",
+#         "4": "ghi",
+#         "5": "jkl",
+#         "6": "mno",
+#         "7": "pqrs",
+#         "8": "tuv",
+#         "9": "wxyz"
+#     }
 
-    res = []
-    def backtrack(curr,idx):
-        if len(curr)==len(digits):
-            res.append(curr)
-            return
-        letters=phone[digits[idx]]
-        for ch in letters:
-            backtrack(curr+ch,idx+1)
+#     res = []
+#     def backtrack(curr,idx):
+#         if len(curr)==len(digits):
+#             res.append(curr)
+#             return
+#         letters=phone[digits[idx]]
+#         for ch in letters:
+#             backtrack(curr+ch,idx+1)
             
-    backtrack("",0)
-    return res
-print(letterCombinations("23"))    
+#     backtrack("",0)
+#     return res
+# print(letterCombinations("23"))    
 
+
+
+# def subsets(nums):
+#     res = []
+
+#     def backtrack(index, curr):
+
+#         # base case
+#         if index == len(nums):
+#             res.append(curr[:])
+#             return
+
+#         # take
+#         curr.append(nums[index])
+#         backtrack(index + 1, curr)
+
+#         # don't take
+#         curr.pop()
+#         backtrack(index + 1, curr)
+
+#     backtrack(0, [])
+#     return res
+
+
+# print(subsets([1,2,3]))   
+
+
+
+def subsets(nums,p):
+    res = []
+
+    def backtrack(index, curr):
+        if sum(curr)==p:
+            print("True")
+            return
+        if index==len(nums):
+            res.append(curr[:])
+            return
+            
+
+                
+        curr.append(nums[index])
+        backtrack(index+1,curr)
+        
+        curr.pop()
+        backtrack(index+1,curr)
+    backtrack(0, [])
+    return res
+    
+
+
+
+print(subsets([1,2,3],5))           
