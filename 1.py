@@ -2437,31 +2437,85 @@ from collections import Counter
 
 
 # print(subsets([1,2,3]))   
+ 
+# def subsets(nums, p):
+
+#     def backtrack(index, curr):
+
+#         if sum(curr) == p:
+#             return curr
+
+#         if index == len(nums):
+#             return False
+
+#         curr.append(nums[index])
+
+#         if backtrack(index + 1, curr):
+#             return True
+
+#         curr.pop()
+
+#         if backtrack(index + 1, curr):
+#             return True
+
+#         return False
+
+#     print(backtrack(0, []))
 
 
+# subsets([1,3], 5)
 
-def subsets(nums,p):
-    res = []
+ 
+# def subsets(nums, p):
+    
+#     def backtrack(index, curr,count):
+#         if sum(curr) == p:
+#             return 1
+        
+#         if index == len(nums):
+#             return 0
 
-    def backtrack(index, curr):
-        if sum(curr)==p:
-            print("True")
-            return
-        if index==len(nums):
-            res.append(curr[:])
-            return
+#         curr.append(nums[index])
+
+#         left=backtrack(index + 1, curr,count)
             
 
-                
+#         curr.pop()
+
+#         right=backtrack(index + 1, curr,count)
+#         return right+left
+
+#     print((backtrack(0, [],0)))
+# subsets([1,2,3], 3)      
+
+
+
+def subsets(nums, p):
+
+    def backtrack(index, curr):
+
+        if sum(curr) == p:
+            return curr
+
+        if index == len(nums):
+            return False
+
         curr.append(nums[index])
-        backtrack(index+1,curr)
-        
+
+        if backtrack(index + 1, curr):
+            return True
+
         curr.pop()
-        backtrack(index+1,curr)
-    backtrack(0, [])
-    return res
-    
+
+        if backtrack(index + 1, curr):
+            return True
+
+        return False
+
+    print(backtrack(0, []))
 
 
+subsets([1,3], 5)
 
-print(subsets([1,2,3],5))           
+
+ 
