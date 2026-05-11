@@ -2414,29 +2414,31 @@ from collections import Counter
 
 
 
-# def subsets(nums):
-#     res = []
+def subsets(nums):
+    res = []
 
-#     def backtrack(index, curr):
+    def backtrack(index, curr):
 
-#         # base case
-#         if index == len(nums):
-#             res.append(curr[:])
-#             return
+        # base case
+        if index == len(nums):
+            res.append(curr[:])
+            return
 
-#         # take
-#         curr.append(nums[index])
-#         backtrack(index + 1, curr)
+        # take
+        curr.append(nums[index])
+        print(curr)
+        backtrack(index + 1, curr)
 
-#         # don't take
-#         curr.pop()
-#         backtrack(index + 1, curr)
+        # don't take
+        curr.pop()
+        print(curr)
+        backtrack(index + 1, curr)
 
-#     backtrack(0, [])
-#     return res
+    backtrack(0, [])
+    return res
 
 
-# print(subsets([1,2,3]))   
+print(subsets([3,1,2]))   
  
 # def subsets(nums, p):
 
@@ -2490,29 +2492,29 @@ from collections import Counter
 
 
 
-def subsets(nums, p):
+# def subsets(nums, p):
 
-    def backtrack(index, curr):
+#     def backtrack(index, curr):
 
-        if sum(curr) == p:
-            return curr
+#         if sum(curr) == p:
+#             return curr
 
-        if index == len(nums):
-            return False
+#         if index == len(nums):
+#             return False
 
-        curr.append(nums[index])
+#         curr.append(nums[index])
 
-        if backtrack(index + 1, curr):
-            return True
+#         if backtrack(index + 1, curr):
+#             return True
 
-        curr.pop()
+#         curr.pop()
 
-        if backtrack(index + 1, curr):
-            return True
+#         if backtrack(index + 1, curr):
+#             return True
 
-        return False
+#         return False
 
-    print(backtrack(0, []))
+#     print(backtrack(0, []))
 
 
 subsets([1,3], 5)
