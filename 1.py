@@ -2414,31 +2414,31 @@ from collections import Counter
 
 
 
-def subsets(nums):
-    res = []
+# def subsets(nums):
+#     res = []
 
-    def backtrack(index, curr):
+#     def backtrack(index, curr):
 
-        # base case
-        if index == len(nums):
-            res.append(curr[:])
-            return
+#         # base case
+#         if index == len(nums):
+#             res.append(curr[:])
+#             return
 
-        # take
-        curr.append(nums[index])
-        print(curr)
-        backtrack(index + 1, curr)
+#         # take
+#         curr.append(nums[index])
+#         print(curr)
+#         backtrack(index + 1, curr)
 
-        # don't take
-        curr.pop()
-        print(curr)
-        backtrack(index + 1, curr)
+#         # don't take
+#         curr.pop()
+#         print(curr)
+#         backtrack(index + 1, curr)
 
-    backtrack(0, [])
-    return res
+#     backtrack(0, [])
+#     return res
 
 
-print(subsets([3,1,2]))   
+# print(subsets([3,1,2]))   
  
 # def subsets(nums, p):
 
@@ -2517,7 +2517,61 @@ print(subsets([3,1,2]))
 #     print(backtrack(0, []))
 
 
-subsets([1,3], 5)
+# subsets([1,3], 5)
+
+# def subsets(nums):
+#     res = []
+
+#     def backtrack(index, curr,taken=True):
+
+#         # base case
+#         if index == len(nums):
+#             res.append(curr[:])
+#             return
+
+#         # take
+#         curr.append(nums[index])
+#         taken=True
+#         if taken:
+            
+#             backtrack(index + 1, curr,taken=False)
+
+#         # don't take
+#             curr.pop()
+#             print(curr)
+
+#     backtrack(0, [])
+#     return res
 
 
+# print(subsets([3,1,2])) 
  
+ 
+ 
+def subsets(nums):
+    res = []
+
+    def backtrack(index, curr, prev_taken):
+
+        # base case
+        if index == len(nums):
+            res.append(curr[:])
+            return
+
+        # don't take current element
+        backtrack(index + 1, curr, False)
+
+        # take current element only if previous was not taken
+        # if not prev_taken:
+        #     curr.append(nums[index])
+
+        #     backtrack(index + 1, curr, True)
+
+        #     curr.pop()
+
+    backtrack(0, [], False)
+
+    return res
+
+
+print(subsets([3, 1, 2])) 
