@@ -2628,6 +2628,139 @@ from collections import Counter
 # inorder(root)
 # postorder(root)
 # preorder(root)
+# from collections import deque
+
+# class Solution:
+#     def levelOrder(self, root):
+
+#         if not root:
+#             return []
+
+#         q = deque([root])
+#         ans = []
+
+#         while q:
+
+#             size = len(q)
+#             level = []
+
+#             for _ in range(size):
+
+#                 node = q.popleft()
+#                 level.append(node.val)
+
+#                 if node.left:
+#                     q.append(node.left)
+
+#                 if node.right:
+#                     q.append(node.right)
+
+#             ans.append(level)
+
+#         return ans
+
+# from collections import deque
+
+
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.left = None
+#         self.right = None
+
+
+# def levelorder(root):
+
+#     if not root:
+#         return []
+
+
+#     q = deque([root])
+
+#     ans=[]
+#     left_to_right = True
+#     while q:
+#         size=len(q)
+#         level=[]
+#         for _ in range(size):
+            
+            
+#             node=q.popleft()
+#             level.append(node.data)
+#             if node.left:
+#                 q.append(node.left)
+#             if node.right:
+#                 q.append(node.right)
+#         if not left_to_right:
+            
+#             level.reverse()
+            
+#         ans.append(level)
+#         left_to_right=not left_to_right
+            
+
+#     return (ans)
+# root = Node(1)
+
+# root.left = Node(2)
+# root.right = Node(3)
+
+# root.left.left = Node(4)
+# root.left.right = Node(5)
+
+# print(levelorder(root))    
+
+
+
+# from collections import deque
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+# def zigzagLevelOrder(root):
+#     if not root:
+#         return []
+
+#     res = []
+#     q = deque([root])
+#     left_to_right = True
+
+#     while q:
+#         level = []
+#         size = len(q)
+
+#         for _ in range(size):
+#             node = q.popleft()
+#             level.append(node.val)
+
+#             if node.left:
+#                 q.append(node.left)
+#             if node.right:
+#                 q.append(node.right)
+
+#         if not left_to_right:
+#             level.reverse()
+
+#         res.append(level)
+#         left_to_right = not left_to_right
+
+#     return res
+
+
+# # Example tree
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.right = TreeNode(3)
+# root.left.left = TreeNode(4)
+# root.left.right = TreeNode(5)
+# root.right.left = TreeNode(6)
+# root.right.right = TreeNode(7)
+
+# print(zigzagLevelOrder(root))
 
 
 from collections import deque
@@ -2640,25 +2773,40 @@ class Node:
         self.right = None
 
 
-def levelorder(root):
+def levelOrder(root):
 
-    if root is None:
+    if not root:
         return
 
-
     q = deque([root])
+    ans = []
+    nodes = []
 
     while q:
-        size=len(q)
-        level=[]
+
+        size = len(q)
+        level = []
+        nodes = []
+
         for _ in range(size):
-            node=q.popleft()
+
+            node = q.popleft()
             level.append(node.data)
+
             if node.left:
                 q.append(node.left)
+                nodes.append(node.left)
+
             if node.right:
                 q.append(node.right)
-        print(' '.join(map(str, level)))
+                nodes.append(node.right)
+
+        ans.append(level)
+
+    return ans
+
+
+# Tree creation
 root = Node(1)
 
 root.left = Node(2)
@@ -2667,4 +2815,8 @@ root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
 
-levelorder(root)    
+root.right.left = Node(6)
+root.right.right = Node(7)
+
+
+print(levelOrder(root))
