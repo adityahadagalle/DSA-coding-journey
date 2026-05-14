@@ -2548,30 +2548,123 @@ from collections import Counter
  
  
  
-def subsets(nums):
-    res = []
+# def subsets(nums):
+#     res = []
 
-    def backtrack(index, curr, prev_taken):
+#     def backtrack(index, curr, prev_taken):
 
-        # base case
-        if index == len(nums):
-            res.append(curr[:])
-            return
+#         # base case
+#         if index == len(nums):
+#             res.append(curr[:])
+#             return
 
-        # don't take current element
-        backtrack(index + 1, curr, False)
+#         # don't take current element
+#         backtrack(index + 1, curr, False)
 
-        # take current element only if previous was not taken
-        # if not prev_taken:
-        #     curr.append(nums[index])
+#         take current element only if previous was not taken
+#         if not prev_taken:
+#             curr.append(nums[index])
 
-        #     backtrack(index + 1, curr, True)
+#             backtrack(index + 1, curr, True)
 
-        #     curr.pop()
+#             curr.pop()
 
-    backtrack(0, [], False)
+#     backtrack(0, [], False)
 
-    return res
+#     return res
 
 
-print(subsets([3, 1, 2])) 
+# print(subsets([3, 1, 2])) 
+
+
+
+
+######TREE######################################################################################################################################################
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.left = None
+#         self.right = None
+
+
+# def inorder(root):
+
+#     if root is None:
+#         return
+#     inorder(root.left)
+#     print(root.data)
+#     inorder(root.right)
+
+# def preorder(root):
+
+#     if root is None:
+#         return
+
+#     print(root.data)
+
+#     preorder(root.left)
+
+#     preorder(root.right)
+# def postorder(root):
+
+#     if root is None:
+#         return
+
+#     postorder(root.left)
+
+#     postorder(root.right)
+
+#     print(root.data)    
+# # creating tree
+# root = Node(1)
+
+# root.left = Node(2)
+# root.right = Node(3)
+
+# root.left.left = Node(4)
+# root.left.right = Node(5)
+
+
+# inorder(root)
+# postorder(root)
+# preorder(root)
+
+
+from collections import deque
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
+def levelorder(root):
+
+    if root is None:
+        return
+
+
+    q = deque([root])
+
+    while q:
+        size=len(q)
+        level=[]
+        for _ in range(size):
+            node=q.popleft()
+            level.append(node.data)
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+        print(' '.join(map(str, level)))
+root = Node(1)
+
+root.left = Node(2)
+root.right = Node(3)
+
+root.left.left = Node(4)
+root.left.right = Node(5)
+
+levelorder(root)    
