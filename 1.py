@@ -2818,6 +2818,6 @@ root.left.right = Node(5)
 root.right.left = Node(6)
 root.right.right = Node(7)
 
-pri
+pr
 print(levelOrder(root))
 print(levelOrder(root))
