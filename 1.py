@@ -2955,5 +2955,5 @@ from collections import Counter
 nums = [1, 1, 0, 0, 1, 1, 1, 0, 1]
 k = 2
 left=0
-for right in range(len(nums)):
+for right in range(len(nums))
     
