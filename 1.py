@@ -2952,8 +2952,103 @@ from collections import Counter
 
 
 
-nums = [1, 1, 0, 0, 1, 1, 1, 0, 1]
-k = 2
-left=0
-for right in range(len(nums))
+# nums = [1,1,1,0,0,0,1,1,1,1,0]
+# k = 2
+# nums = [1,0,1,0,1,0,1]
+# k = 3
+# left=0
+# zeros=0
+# best=0
+# for right in range(len(nums)):
+#         if nums[right]==0:
+#                 zeros+=1
+#         while zeros>k:
+#                 if nums[left]==0:
+                        
+#                         zeros-=1
+#                 left+=1        
+#         best=max(best,right-left+1)
+# print(best)
+                
+        
     
+# nums = [2, 1, 5, 1, 4, 2,7]
+# k = 3
+# left=0
+# best=0
+# summ=0
+# for right in range(len(nums)):
+#         summ+=nums[right]
+#         while right-left+1>=k:
+#                 best=max(best,summ)
+#                 summ-=nums[left]
+#                 left+=1
+# print(best)
+
+
+# nums=[1,1,0,1,1,1,1,1]
+# left=0
+# zeros=0
+# best=0
+# for right in range(len(nums)):
+#         if nums[right]==0:
+#                 zeros+=1
+#         while zeros>=1:
+#                 if nums[left]==0:
+#                         zeros-=1
+#                 left+=1
+#         best=max(best,right-left+1)
+# print(best)
+
+
+
+#####################3prefix sum revision  #########################################################
+# nums = [10, 4, -8, 7]
+# left=0
+# summ=sum(nums)
+# count=0
+# for i in range(len(nums)):
+#     right=summ-nums[i]-left
+#     if right>=left:
+#         count+=1
+#     left+=nums[i]
+# print(count) 
+
+# nums = [1,2,3,4] 
+# k=[]
+# pre=0
+# for i in range(len(nums)):
+#         pre+=nums[i]
+#         k.append(pre)
+# print(k)
+
+# nums=[1,2,3]
+# k=3
+# pre = 0
+# count = 0
+# freq = {0: 1}
+
+# for num in nums:
+#         pre += num
+
+#         if pre - k in freq:
+#                 count += freq[pre - k]
+
+#         freq[pre] = freq.get(pre, 0) + 1
+
+# print(count)
+# print(freq)
+        
+        
+nums=[1,2,3]
+k=3
+pre = 0
+count = 0
+freq = {0: 1}
+for i in nums:
+        pre+=i
+        present=pre-k
+        if present in freq:
+                count+=freq[present]
+        freq[pre]=freq.get(pre,0)+1
+print(count)                
