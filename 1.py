@@ -2763,61 +2763,197 @@ from collections import Counter
 # print(zigzagLevelOrder(root))
 
 
-from collections import deque
+# from collections import deque
 
 
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.left = None
+#         self.right = None
 
 
-def levelOrder(root):
+# def levelOrder(root):
 
-    if not root:
-        return
+#     if not root:
+#         return
 
-    q = deque([root])
-    ans = []
-    nodes = []
+#     q = deque([root])
+#     ans = []
+#     nodes = []
 
-    while q:
+#     while q:
 
-        size = len(q)
-        level = []
-        nodes = []
+#         size = len(q)
+#         level = []
+#         nodes = []
 
-        for _ in range(size):
+#         for _ in range(size):
 
-            node = q.popleft()
-            level.append(node.data)
+#             node = q.popleft()
+#             level.append(node.data)
 
-            if node.left:
-                q.append(node.left)
-                nodes.append(node.left)
+#             if node.left:
+#                 q.append(node.left)
+#                 nodes.append(node.left)
 
-            if node.right:
-                q.append(node.right)
-                nodes.append(node.right)
+#             if node.right:
+#                 q.append(node.right)
+#                 nodes.append(node.right)
 
-        ans.append(level)
+#         ans.append(level)
 
-    return ans
+#     return ans
 
 
-# Tree creation
-root = Node(1)
+# # Tree creation
+# root = Node(1)
 
-root.left = Node(2)
-root.right = Node(3)
+# root.left = Node(2)
+# root.right = Node(3)
 
-root.left.left = Node(4)
-root.left.right = Node(5)
+# root.left.left = Node(4)
+# root.left.right = Node(5)
 
-root.right.left = Node(6)
-root.right.right = Node(7)
+# root.right.left = Node(6)
+# root.right.right = Node(7)
 
-print
-print(levelOrder(root))
-print(levelOrder(root))
+# print
+# print(levelOrder(root))
+# print(levelOrder(root))
+
+
+
+
+#sliding window revision###################33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+
+# arr = [5, 5, 5, 5]
+# k = 2
+# left=0
+# listt=[]
+# right=0
+# sum=0
+# best=0
+# for right in range(len(arr)):
+#     sum+=arr[right]
+#     if  right-left+1==k:
+#         best=max(best,sum)
+#         sum-=arr[left]
+#         left+=1
+# print(best)    
+        
+        
+        
+#Maximum Sum of Distinct Subarrays With Length K (LeetCode 2461)            
+# from typing import List
+# from collections import defaultdict
+
+# class Solution:
+#     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
+#         left = 0
+#         window_sum = 0
+#         freq = defaultdict(int)
+#         best = 0
+
+#         for right in range(len(nums)):
+#             # add current element
+#             window_sum += nums[right]
+#             freq[nums[right]] += 1
+
+#             # shrink window if size exceeds k
+#             if right - left + 1 > k:
+#                 freq[nums[left]] -= 1
+#                 window_sum -= nums[left]
+
+#                 if freq[nums[left]] == 0:
+#                     del freq[nums[left]]
+
+#                 left += 1
+
+#             # check condition: size == k AND all distinct
+#             if right - left + 1 == k and len(freq) == k:
+#                 best = max(best, window_sum)
+
+#         return best      
+    
+    
+# left = 0
+# window_state = 0   # sum / frequency / count etc.
+# best = 0           # or float('inf') depending on problem
+
+# for right in range(len(arr)):
+    
+#     # 1. Expand window
+#     window_state += arr[right]
+
+#     # 2. Shrink window while condition is NOT valid
+#     while condition_is_invalid:
+#         window_state -= arr[left]
+#         left += 1
+
+#     # 3. Update answer when window is valid
+#     best = max(best, window_state)    
+
+
+#Smallest Subarray with a Given Sum (Easy)
+# arr = [2, 1, 5, 2, 3, 2]
+# S = 7
+# left=0
+# summ=0
+# best=float('inf')
+# for right in range(len(arr)):
+#     summ+=arr[right]
+#     while summ>=S:
+#         best=min(best,right-left+1)
+#         summ-=arr[left]
+#         left+=1
+# print(best)
+
+#fruits in basket
+# arr = [1, 2, 2,2,2,2,3]
+# left=0
+# freq={}
+# best=0
+# for right in range(len(arr)):
+#     freq[arr[right]] = freq.get(arr[right], 0) + 1
+#     while len(freq)>2:
+#         freq[arr[left]] -= 1
+
+#         if freq[arr[left]] == 0:
+#             del freq[arr[left]]
+#         left+=1    
+        
+#     best=max(best,right-left+1)    
+# print(best)
+
+
+#Subarray Product Less Than K
+# nums = [1, 1, 1]
+# k = 2
+# prod=1
+# summ=0
+# left=0
+# for right in range(len(nums)):
+#     prod*=nums[right]
+#     while prod>=k:
+#         prod=prod/nums[left]
+#         left+=1
+#     summ+=right-left+1
+# print(summ)  
+
+# Important formula for counting
+
+# When window is valid:
+
+# right - left + 1
+
+# 👉 This gives number of new subarrays ending at right  
+
+
+
+
+nums = [1, 1, 0, 0, 1, 1, 1, 0, 1]
+k = 2
+left=0
+for right in range(len(nums)):
+    
