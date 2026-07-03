@@ -3098,7 +3098,8 @@ for i in range(len(nums)):
         if pre not in freq:
                 freq[pre] = i
         if pre in freq:
-                k=max(k,i-freq[pre])
+                k=max(k,i-freq[pre]
+                      
 
 
 
