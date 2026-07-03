@@ -3040,15 +3040,66 @@ from collections import Counter
 # print(freq)
         
         
-nums=[1,2,3]
-k=3
-pre = 0
-count = 0
-freq = {0: 1}
-for i in nums:
-        pre+=i
-        present=pre-k
-        if present in freq:
-                count+=freq[present]
-        freq[pre]=freq.get(pre,0)+1
-print(count)                
+# nums=[1,2,3]
+# k=3
+# pre = 0
+# count = 0
+# freq = {0: 1}
+# for i in nums:
+#         pre+=i
+#         present=pre-k
+#         if present in freq:
+#                 count+=freq[present]
+#         freq[pre]=freq.get(pre,0)+1
+# print(count)                
+# print(freq)
+
+
+# nums = [4,5,0,-2,-3,1]
+# k = 5
+# pre = 0
+# count = 0
+# freq = {0: 1}
+# for i in nums:
+#         pre+=i
+#         present=pre%k
+#         if present in freq:
+#                 count+=freq[present]
+#         freq[present]=freq.get(present,0)+1
+# print(count)  
+# print(freq)
+
+
+# nums = [1,1]
+# k = 6
+
+# pre = 0
+# count = 0
+# freq = {0: 1}
+# for i in nums:
+#         pre+=i
+#         val=pre%k
+#         if val in freq:
+#                 if i-freq[val]>1:
+#                         print(True)
+#                         break
+                
+#         else:
+#                 freq[val]=i
+
+nums = [1,1,1,0,0,0,1]
+freq={0:-1}
+pre=0
+k=0
+for i in range(len(nums)):
+        if nums[i]==0:
+                nums[i]=-1
+        pre+=nums[i]
+        if pre not in freq:
+                freq[pre] = i
+        if pre in freq:
+                k=max(k,i-freq[pre])
+
+print(k)
+
+
