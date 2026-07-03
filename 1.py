@@ -3100,6 +3100,6 @@ for i in range(len(nums)):
         if pre in freq:
                 k=max(k,i-freq[pre])
 
-print(k)
+
 
 
