@@ -3087,20 +3087,206 @@ from collections import Counter
 #         else:
 #                 freq[val]=i
 
-nums = [1,1,1,0,0,0,1]
-freq={0:-1}
-pre=0
-k=0
-for i in range(len(nums)):
-        if nums[i]==0:
-                nums[i]=-1
-        pre+=nums[i]
-        if pre not in freq:
-                freq[pre] = i
-        if pre in freq:
-                k=max(k,i-freq[pre]
+# nums = [1,1,1,0,0,0,1]
+# freq={0:-1}
+# pre=0
+# k=0
+# for i in range(len(nums)):
+#         if nums[i]==0:
+#                 nums[i]=-1
+#         pre+=nums[i]
+#         if pre not in freq:
+#                 freq[pre] = i
+#         if pre in freq:
+#                 k=max(k,i-freq[pre])
                       
+# print(k)
+
+
+# What should I store?
+# If question says
+# "Count"
+
+# Store
+
+# How many times this prefix has appeared.
+
+# If question says
+# "Longest"
+
+# Store
+
+# Where did this prefix appear first?
+
+# Never overwrite it.
+
+# 4. Initialization
+
+# Whenever counting
+
+# Remember
+
+# Empty prefix exists once.
+
+# Whenever longest
+
+# Remember
+
+# Empty prefix starts before index 0.
+
+# 5. If question contains
+# "Exactly K"
+
+# Think
+
+# Current Prefix − Previous Prefix = K
+
+# So mentally think
+
+# Subtract K
+
+# 6. If question contains
+# "Divisible by K"
+
+# Think
+
+# Same remainder
+
+# Never think about exact sum.
+
+# Always think
+
+# Remainders
+
+# 7. Equal number of 0s and 1s?
+
+# Think
+
+# Make
+
+# 0 → -1
+
+# Now equal 0s and 1s means
+
+# Prefix sum becomes 0
+
+# 8. Continuous Subarray Sum
+
+# Remember only one thing
+
+# Same remainder again
+
+# AND
+
+# Distance between indices ≥ 2
+
+
+
+#binary search ###############################################################################################################################################################################
+# nums = [-1,0,3,5,9,12]
+# target = 9
+
+
+# left = 0
+# right = len(nums) - 1
+
+# while left <= right:
+#     mid = left + (right - left) // 2
+
+#     if nums[mid] == target:
+#         print(mid)
+
+#     elif nums[mid] < target:
+#         left = mid + 1
+
+#     else:
+#         right = mid - 1
+
+# print(-1) 
+
+
+# nums = [-1,0,3,5,9,12]
+# target = 9
+
+
+# left = 0
+# right = len(nums) - 1
+# while left<=right:
+#         mid=left + (right - left) // 2
+
+#         if nums[mid]==target:
+#                 print(mid)
+#                 break
+#         elif target<nums[mid]:
+#                 right=mid-1
+#         else:
+#                 left=mid+1
+
+
+
+# nums = [1]
+# target = 0
+# left = 0
+# right = len(nums) - 1
+# while left<=right:
+#         mid=left + (right - left) // 2
+
+#         if nums[mid]==target:
+#                 print(mid)
+#                 break
+#         elif target<nums[mid]:
+#                 right=mid-1
+#         elif target>nums[mid]:
+#                 left=mid+1
+        
+# print(left)
+# If the target is found → return its index.
+# If the target is not found → left is the correct insertion position.
 
 
 
 
+                
+# nums = [4,5,6,7,0,1,2]
+# target = 0
+
+# left = 0
+# right = len(nums) - 1
+
+# while left <= right:
+#     mid = left + (right - left) // 2
+
+#     if target == nums[mid]:
+#         print(mid)
+#         break
+
+#     # Left half is sorted
+#     if nums[mid] >= nums[left]:
+#         if nums[left] <= target < nums[mid]:
+#             right = mid - 1
+#         else:
+#             left = mid + 1
+
+#     # Right half is sorted
+#     else:
+#         if nums[mid] < target <= nums[right]:
+#             left = mid + 1
+#         else:
+#             right = mid - 1
+# else:
+#     print(-1)
+                
+#first we need to find sorted array
+# first we need to find the target in the sorted array 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                        
+
+                
