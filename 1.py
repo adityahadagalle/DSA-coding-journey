@@ -3278,15 +3278,98 @@ from collections import Counter
                 
 #first we need to find sorted array
 # first we need to find the target in the sorted array array
+#we need find both sorted and non sorted
+
+
+
+# nums = [6,7,8,1,2,3,4]
+# left=0
+# right=len(nums)-1
+# while left<=right:
+#         mid = left + (right - left) // 2
+    
+#         if nums[mid]<nums[left]:
+#                 left=mid
+#         else:
+#                 right=mid-1  
+#         if nums[mid]>nums[right]:
+#                 left=mid+1
+#         else:
+#                 right=mid-1
+                
+        
+# print(nums[left])
+        
+        
+        
+
+# nums=[4,5,6,7,0,1,2]
+  
+# left=0
+# right=len(nums)-1
+# while left<right:
+#         mid = left + (right - left) // 2
+    
+#         if nums[mid]>nums[right]:
+#                 left=mid+1
+                
+
+#         else:
+#                 right=mid
+                
+        
+# print(nums[left])    
+
+#no need to comapre both left and right ,one of them is sufficinet to solve the problem ,either compare mid with low or high 
+#sometime right=mid occurs  
+#sometimes it could be left<right:    
+#nums = [6,7,0,1,2,3,4]
+#nums = [4,5,6,7,0,1,2] examples to solve 
+
+
+# nums = [5,4,3,2,1]
+
+# left=0
+# right=len(nums)-1 
+# while left<=right:
+#         mid=left+(right-left)//2
+#         if nums[mid-1]<nums[mid]>nums[mid+1]:
+#                 print(nums[mid])
+#                 break
+#         if nums[mid]<nums[mid+1]:
+#                 left=mid+1
+#         else:
+#                 right=mid
+            
+# When you are not 100% sure that mid cannot be the answer,
+
+# ➡️ don't discard mid. and use like right=mid           
+     
+# Golden Rule ⭐
+
+# Don't memorize left = mid + 1.
+
+# Instead memorize:
+
+# If mid cannot be the answer → discard it (mid ± 1).
+
+# If mid could still be the answer → keep it (mid).            
+# example : right=mid or left=mid
+#sometimes you need to search with adjecents of mid        
             
             
-            
-            
-            
-            
-            
-            
-            
+nums = [1,4,7,3,7,3,2,7,2]
+
+left=0
+right=len(nums)-1 
+while left<right:
+        mid=left+(right-left)//2
+        
+        if nums[mid]>nums[mid+1]:
+                right=mid
+        else:
+                left=mid+1
+print(nums[left])            
                         
 
                 
