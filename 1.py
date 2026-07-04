@@ -3277,7 +3277,7 @@ from collections import Counter
 #     print(-1)
                 
 #first we need to find sorted array
-# first we need to find the target in the sorted array 
+# first we need to find the target in the sorted array array
             
             
             
