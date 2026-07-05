@@ -3358,18 +3358,79 @@ from collections import Counter
 #sometimes you need to search with adjecents of mid        
             
             
-nums = [1,4,7,3,7,3,2,7,2]
+# nums = [1,4,7,3,7,3,2,7,2]
 
-left=0
-right=len(nums)-1 
-while left<right:
-        mid=left+(right-left)//2
+# left=0
+# right=len(nums)-1 
+# while left<right:
+#         mid=left+(right-left)//2
         
-        if nums[mid]>nums[mid+1]:
-                right=mid
-        else:
-                left=mid+1
-print(nums[left]         
-                        
+#         if nums[mid]>nums[mid+1]:
+#                 right=mid
+#         else:
+#                 left=mid+1
+# print(nums[left] )
 
-                
+
+
+                                
+# piles = [3, 6, 7, 11]
+# h = 8
+
+# low = 1
+# high = max(piles)
+
+# ans = 0
+
+# while low <= high:
+#     mid = (low + high) // 2
+#     total_hours=0
+#     for i in piles:
+#             if i%mid==0:
+#                     total_hours+=(i//mid)
+#             else:
+#                 total_hours+=(i//mid)+1
+#     if total_hours<=h:
+#             ans=mid
+#             high=mid-1
+#     else:
+#             low=mid+1   
+# print(ans)    
+
+
+
+
+weights = [1,2,3,4,5,6,7,8,9,10]
+days = 5
+
+low = max(weights)
+high = sum(weights)
+
+ans = 0
+
+# while low <= high:
+#     mid = (low + high) // 2
+#     total_sum=0
+#     day=1
+#     for i in weights:
+#             total_sum+=i
+            
+#             if total_sum>mid:
+#                     day+=1
+#                     total_sum=i
+#     if day<=days:
+#             ans=mid
+#             high=mid-1
+#     else:
+#             low=mid+1
+            
+# print(ans)
+                    
+                    
+weights = [1,2,3,4,5,6,7,8,9,10]
+days = 5
+
+low = max(weights)
+high = sum(weights)
+
+ans = 0                    
