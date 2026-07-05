@@ -3400,13 +3400,13 @@ from collections import Counter
 
 
 
-weights = [1,2,3,4,5,6,7,8,9,10]
-days = 5
+# weights = [1,2,3,4,5,6,7,8,9,10]
+# days = 5
 
-low = max(weights)
-high = sum(weights)
+# low = max(weights)
+# high = sum(weights)
 
-ans = 0
+# ans = 0
 
 # while low <= high:
 #     mid = (low + high) // 2
@@ -3427,10 +3427,27 @@ ans = 0
 # print(ans)
                     
                     
-weights = [1,2,3,4,5,6,7,8,9,10]
-days = 5
+dist = [1,3,2]
+hour = 2.7
 
-low = max(weights)
-high = sum(weights)
-
+left = 1
+right = 10**7
 ans = 0                    
+while left<=right:
+        mid=left+(right-left)//2
+        summ=0
+        for i in range(len(dist)):
+                if i!=len(dist)-1:
+                        if dist[i]%mid!=0:
+                                summ+=(dist[i]//mid)+1
+                        else:
+                                
+                                summ+=(dist[i]//mid)
+                else:
+                        summ+=(dist[i]/mid)
+        if summ<=hour:
+                ans=mid
+                right=mid-1
+        else:
+                left=mid+1
+print(ans)
