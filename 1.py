@@ -3369,7 +3369,7 @@ while left<right:
                 right=mid
         else:
                 left=mid+1
-print(nums[left])            
+print(nums[left]         
                         
 
                 
