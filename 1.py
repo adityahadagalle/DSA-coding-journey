@@ -3427,25 +3427,168 @@ from collections import Counter
 # print(ans)
                     
                     
-dist = [1,3,2]
-hour = 2.7
+# dist = [1,3,2]
+# hour = 2.7
 
-left = 1
-right = 10**7
+# left = 1
+# right = 10**7
+# ans = 0                    
+# while left<=right:
+#         mid=left+(right-left)//2
+#         summ=0
+#         for i in range(len(dist)):
+#                 if i!=len(dist)-1:
+#                         if dist[i]%mid!=0:
+#                                 summ+=(dist[i]//mid)+1
+#                         else:
+                                
+#                                 summ+=(dist[i]//mid)
+#                 else:
+#                         summ+=(dist[i]/mid)
+#         if summ<=hour:
+#                 ans=mid
+#                 right=mid-1
+#         else:
+#                 left=mid+1
+# print(ans)
+
+
+
+# stalls = [1, 2, 4, 8, 9]
+# cows = 3
+# i=0
+# left= 1
+# right = max(stalls) - min(stalls)
+# ans = 0                    
+# while left<=right:
+#         mid=left+(right-left)//2
+#         cows_count=1
+#         summ=0
+#         last=stalls[0]
+#         for i in range(1,len(stalls)):
+#                 present=stalls[i]
+#                 summ=present-last
+#                 if summ>=mid:
+#                         cows_count+=1
+#                         last=present
+#         if cows_count >= cows:
+#                 ans = mid
+#                 left = mid + 1
+#         else:
+#                 right = mid - 1
+# print(ans)
+
+# One rule to remember forever
+# Find Minimum Valid Answer (Koko, Ship Packages, Min Speed)
+# Pattern: ❌ ❌ ❌ ✅ ✅
+# Valid → right = mid - 1
+# Find Maximum Valid Answer (Aggressive Cows)
+# Pattern: ✅ ✅ ✅ ❌ ❌
+# Valid → left = mid + 1
+
+# This one rule will help you solve almost every Binary Search on Answer problem.
+#         if cows_count >= cows:
+#                 ans = mid
+#                 left = mid + 1
+#         else:
+#                 right = mid - 1 this always changes question to question
+# if the question is asking about min or max , then the ans=mid
+#                                                       left=mid+1
+#                                                       right=mid-1 and vice versa
+
+
+
+                # bloom = [7,7,7,7,13,11,12,7]
+                # m = 2
+                # k=3
+                # i=0
+                # left= min(bloom)
+                # right = max(bloom) 
+                # ans = 0                    
+                # while left<=right:
+                #         count=0
+                #         m1=0
+                #         mid=left+(right-left)//2
+                #         for i in range(len(bloom)):
+                #                 if bloom[i]<=mid:
+                #                         count+=1
+                                        
+                #                         if count==k:
+                #                                 m1+=1
+                #                                 count=0
+                #                 else:
+                #                         count=0
+                #         if m1>=m:
+                #                 ans=mid
+                #                 right=mid-1
+                #         else:
+                #                 left=mid+1
+                # print(ans)
+
+        # here in the quesion they asked minimum so condition becomes         
+                #         if m1>=m:
+                #                 ans=mid
+                #                 right=mid-1
+                #         else:
+                #                 left=mid+1
+                # if asked maximum it will be vice versa of this
+                
+# One small suggestion
+
+# When you solve a new Binary Search on Answer problem, ask yourself these three questions first:
+
+# What am I binary searching on? (speed, days, pages, distance, capacity...)
+# What are the minimum and maximum possible answers?
+# Given a candidate answer (mid), how do I check if it works?
+
+# If you can answer those three questions, you've already solved 80% of the problem.
+
+
+# books = [25,46,28,49,24]
+# students= 4
+
+# left = max(books)
+# right = sum(books)
+# ans = 0                    
+# while left<=right:
+#         student=1
+#         summ=0
+#         mid=left+(right-left)//2
+#         for i in range(len(books)):
+#                 summ+=books[i]
+#                 if summ>mid:
+#                         student+=1
+#                         summ=books[i]
+          
+                        
+#         if student<=students:
+#                 ans=mid
+#                 right=mid-1
+#         else:
+#                 left=mid+1
+# print(ans)
+                        
+                        
+                        
+                        
+
+boards = [10,20,30,40]
+painters = 2
+
+left = max(boards)
+right = sum(boards)
 ans = 0                    
 while left<=right:
-        mid=left+(right-left)//2
+        painter=1
         summ=0
-        for i in range(len(dist)):
-                if i!=len(dist)-1:
-                        if dist[i]%mid!=0:
-                                summ+=(dist[i]//mid)+1
-                        else:
-                                
-                                summ+=(dist[i]//mid)
-                else:
-                        summ+=(dist[i]/mid)
-        if summ<=hour:
+        mid=left+(right-left)//2
+        for i in range(len(boards)): 
+                summ+=boards[i]
+                if summ>mid:
+                        painter+=1
+                        summ=boards[i]
+                               
+        if painter<=painters:
                 ans=mid
                 right=mid-1
         else:
