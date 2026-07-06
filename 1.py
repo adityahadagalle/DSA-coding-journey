@@ -3572,25 +3572,127 @@ from collections import Counter
                         
                         
 
-boards = [10,20,30,40]
-painters = 2
+# boards = [10,20,30,40]
+# painters = 2
 
-left = max(boards)
-right = sum(boards)
-ans = 0                    
-while left<=right:
-        painter=1
-        summ=0
-        mid=left+(right-left)//2
-        for i in range(len(boards)): 
-                summ+=boards[i]
-                if summ>mid:
-                        painter+=1
-                        summ=boards[i]
+# left = max(boards)
+# right = sum(boards)
+# ans = 0                    
+# while left<=right:
+#         painter=1
+#         summ=0
+#         mid=left+(right-left)//2
+#         for i in range(len(boards)): 
+#                 summ+=boards[i]
+#                 if summ>mid:
+#                         painter+=1
+#                         summ=boards[i]
                                
-        if painter<=painters:
-                ans=mid
-                right=mid-1
-        else:
-                left=mid+1
-print(ans)
+#         if painter<=painters:
+#                 ans=mid
+#                 right=mid-1
+#         else:
+#                 left=mid+1
+# print(ans)
+
+
+
+# 2. First Think:
+# What am I Binary Searching?
+
+# Examples
+
+# Speed
+# Capacity
+# Pages
+# Distance
+# Days
+
+# Never jump into coding before answering this.
+
+# 4. Biggest Mistake
+
+# You repeatedly forgot this.
+
+# Example
+
+# summ += nums[i]
+
+# if summ > mid:
+#     student += 1
+
+# Wrong.
+
+# Current item doesn't disappear.
+
+# It belongs to the next student.
+
+# Correct thinking
+
+# student += 1
+# summ = nums[i]
+
+# Exactly the same happened in
+
+# Ship Packages
+# Allocate Books
+# Painter Partition
+
+# Whenever capacity exceeds,
+
+# Current item starts the next group.
+
+
+
+
+# 5. Difference between Minimum and Maximum Answer
+
+# This confused you several times.
+
+# Minimum Valid Answer
+
+# Pattern
+
+# ❌ ❌ ❌ ✅ ✅ ✅
+
+# Examples
+
+# Koko
+# Ship Packages
+# Allocate Books
+# Split Array
+# Bouquets
+
+# If valid
+
+# ans = mid
+# right = mid - 1
+# Maximum Valid Answer
+
+# Pattern
+
+# ✅ ✅ ✅ ❌ ❌ ❌
+
+# Example
+
+# Aggressive Cows
+
+# If valid
+
+# ans = mid
+# left = mid + 1
+
+# You mixed these two many times.
+
+
+# 10. Simulation First
+
+# Never think about Binary Search first.
+
+# Always think
+
+# If I already know the answer (mid), how will I check it?
+
+# Once simulation works,
+
+# Binary Search becomes easy.
