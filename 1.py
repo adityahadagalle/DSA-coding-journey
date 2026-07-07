@@ -3695,4 +3695,4 @@ from collections import Counter
 
 # Once simulation works,
 
-# Binary Search becomes easy.
+# Binary Search becomes easy
