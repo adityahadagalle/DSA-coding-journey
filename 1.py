@@ -3750,4 +3750,4 @@ for i in range(len(nums)):
                 k=stack.pop()
                 result[k]=nums[i]
         stack.append(i)                
-print(result)        
+print(result
