@@ -3741,13 +3741,47 @@ from collections import Counter
 
 
 
-nums=[6,0,8,1,3]
-result=[-1]*len(nums)
-stack=[]
-for i in range(len(nums)):
+# nums=[6,0,8,1,3]
+# result=[-1]*len(nums)
+# stack=[]
+# for i in range(len(nums)):
         
-        while stack and nums[stack[-1]] < nums[i]:
-                k=stack.pop()
-                result[k]=nums[i]
-        stack.append(i)                
-print(result
+#         while stack and nums[stack[-1]] < nums[i]:
+#                 k=stack.pop()
+#                 result[k]=nums[i]
+#         stack.append(i)                
+# print(result)
+
+
+# nums=[132,1,2,3,4]
+# result=[-1]*len(nums)
+# stack=[]
+# length=len(nums)
+# for i in range(2*len(nums)):
+        
+#         while stack and nums[stack[-1]] < nums[i%length]:
+#                 k=stack.pop()
+#                 result[k]=nums[i%length]
+#         if i<len(nums):
+#                 stack.append(i%length)
+
+# print(result)
+
+
+
+nums = [73,74,75,71,69,72,76,73]
+result=[0]*len(nums)
+stack=[]
+length=len(nums)
+first=0
+second=0
+for i in range(len(nums)):
+        while stack and nums[stack[-1]]<nums[i]:
+                second=stack.pop()
+                first=i
+                diff=first-second
+                result[second]=diff
+        stack.append(i)
+print(result)
+                
+                
