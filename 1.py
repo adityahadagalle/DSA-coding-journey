@@ -3695,4 +3695,59 @@ from collections import Counter
 
 # Once simulation works,
 
-# Binary Search becomes easy
+# Binary Search becomes easy  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#stack###########################################################################################################################3
+# s = "[{[]}]"
+# result = []
+
+# for i in range(len(s)):
+#     if s[i] == "{" or s[i] == "[" or s[i] == "(":
+#         result.append(s[i])
+
+#     else:
+#         if not result:
+#             print("false")
+#             break
+
+#         if s[i] == "}" and result[-1] == "{":
+#             result.pop()
+#         elif s[i] == "]" and result[-1] == "[":
+#             result.pop()
+#         elif s[i] == ")" and result[-1] == "(":
+#             result.pop()
+#         else:
+#             print("false")
+#             break
+# else:
+#     if result:
+#         print("false")
+#     else:
+#         print("true")
+
+
+
+
+nums=[6,0,8,1,3]
+result=[-1]*len(nums)
+stack=[]
+for i in range(len(nums)):
+        
+        while stack and nums[stack[-1]] < nums[i]:
+                k=stack.pop()
+                result[k]=nums[i]
+        stack.append(i)                
+print(result)        
