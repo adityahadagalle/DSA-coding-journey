@@ -3710,8 +3710,20 @@ from collections import Counter
 
 
 
-#stack###########################################################################################################################3
+#stack###########################################################################################################################
+# we are storing the indices in the stack remember that
+
+# this you have to remember result = [1] * len(nums)
+
+
+
+
+
+
 # s = "[{[]}]"
+
+
+
 # result = []
 
 # for i in range(len(s)):
@@ -3769,19 +3781,77 @@ from collections import Counter
 
 
 
-nums = [73,74,75,71,69,72,76,73]
-result=[0]*len(nums)
-stack=[]
-length=len(nums)
-first=0
-second=0
-for i in range(len(nums)):
-        while stack and nums[stack[-1]]<nums[i]:
-                second=stack.pop()
-                first=i
-                diff=first-second
-                result[second]=diff
-        stack.append(i)
-print(result)
+# nums = [73,74,75,71,69,72,76,73]
+# result=[0]*len(nums)
+# stack=[]
+# length=len(nums)
+# first=0
+# second=0
+# for i in range(len(nums)):
+#         while stack and nums[stack[-1]]<nums[i]:
+#                 second=stack.pop()
+#                 first=i
+#                 diff=first-second
+#                 result[second]=diff
+#         stack.append(i)
+# print(result)
                 
-                
+   
+      
+# nums=[7,2,1,3,3,1,8]
+# result = [1] * len(nums)
+# stack = []
+# diff=0
+# for i in range(len(nums)):
+#     while stack and nums[stack[-1]] <= nums[i]:
+#         stack.pop()
+
+#     if stack:
+#         diff = i - stack[-1]
+#     else:
+#             diff=i+1
+
+#     result[i] = diff
+#     stack.append(i)
+
+# print(result)                     
+
+
+               
+
+
+# class Solution:
+#     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+#         stack = []
+
+#         for num in asteroids: 
+
+#             if num > 0:
+#                 stack.append(num)
+
+#             else:
+#                 while stack and stack[-1] > 0 and stack[-1] < abs(num):
+#                     stack.pop()
+
+#                 if stack and stack[-1] > 0:
+#                     if stack[-1] == abs(num):
+#                         stack.pop()
+#                     # else: positive is bigger → negative destroyed
+#                 else:
+#                     stack.append(num)   # append num, not abs(num)
+
+#         return stack               
+
+
+
+###########two pointers########################################################################3
+
+
+nums=[2,7,11,15]
+i=0
+tar=9
+j=len(nums)-1
+while i<=j:
+        if nums[i]+nums[j]==tar:
+                print(i,j)
+        else 
