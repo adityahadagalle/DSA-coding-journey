@@ -2826,6 +2826,13 @@ from collections import Counter
 
 
 #sliding window revision###################33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+# if the numbers are in duplicate manner or in the repatitve then use hash map and 
+# if you are using hashmap in sliding window then make sure you decrese the frequnce of hashmap
+
+#if you are collecting something like adding elements or adding zeros or adding elements in freq map then make sure yu are decreasing it also in the window
+
+
+
 
 # arr = [5, 5, 5, 5]
 # k = 2
@@ -3847,11 +3854,15 @@ from collections import Counter
 ###########two pointers########################################################################3
 
 
-nums=[2,7,11,15]
-i=0
-tar=9
-j=len(nums)-1
-while i<=j:
-        if nums[i]+nums[j]==tar:
-                print(i,j)
-        else 
+# nums=[1,2,3,4,5,6,7]
+# i=0
+# tar=13  
+# j=len(nums)-1
+# while i<=j:
+#         if nums[i]+nums[j]==tar:
+#                 print(i,j)      
+#                 break
+#         elif nums[i]+nums[j]<=tar:
+#                 i+=1
+#         else:
+#                 j-=1
