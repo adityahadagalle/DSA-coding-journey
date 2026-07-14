@@ -45,7 +45,7 @@
 # while j<n:
 #     if num[i]!=num[j]:
 #         i+=1
-#     num[i],num[j]=num[j],num[i
+#     num[i],num[j]=num[j],num[i]
 #     j+=1
 # print(num)
 # num = [1,2,6,5,0]
