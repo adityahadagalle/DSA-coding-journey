@@ -218,7 +218,7 @@
 def backtrack(index):
 
     if index == len(nums):
-        ans.append(path[:])
+        ans.append(path[:]
         return
 
     # Take
