@@ -187,6 +187,14 @@
 # # print(fun(i=0,arr=[3,2,7,10]))
 
 # ###########################backtracking#####################################################################
+# "How many choices do I have at each recursive step?"
+
+# If the answer is:
+
+# 2 choices → Think Take/Skip.
+# Many choices → Think Loop.
+
+
 
 # def backtrack(index):
 
@@ -215,29 +223,76 @@
 # print(ans)         
 
 
-def backtrack(inde
+# def backtrack(index):
 
-    if index == len(nums)
-        ans.append(path[:])
-        return
+#     if index == len(nums):  
+#         ans.append(path[:])
+#         return
 
-    # Take
-    if path[-1]!=path[:]:
-        path.append(nums[index])
-    backtrack(index+1)
+#     # Take
+#     if path[-1]!=path[:]:
+#         path.append(nums[index])
+#     backtrack(index+1)
 
-    # Undo
-    path.pop()
+#     # Undo
+#     path.pop()
 
-    # Skip
-    backtrack(index+1)
+#     # Skip
+#     backtrack(index+1)
 
 
-nums = [1,2,2]
+# nums = [1,2,2]
 
+# ans = []
+# path = []
+
+# backtrack(0)
+
+# print(ans)  
+
+
+
+
+
+
+
+# nums=[1,2,3]
+# def backtrack(index):
+
+#     if index == len(nums):  
+#         ans.append(path[:])
+#         return
+#     for index in range(len(nums)):
+    
+#         path.append(nums[index])
+#     backtrack(index+1)
+    
+#     path.pop()
+#     backtrack(index+1)
+# # nums = [1,2,2]
+
+# ans = []
+# path = []
+
+# backtrack(0)
+
+# print(ans)  
+
+    
 ans = []
 path = []
-
-backtrack(0)
-
-print(ans)  
+used = [False, False, False]    
+nums=[1,2,3]
+def backtrack(index):
+    if len(path)==len(nums):
+        ans.append(path[:])
+        return
+    for i in range(len(nums)):
+        if not used[i]:
+            used[i]=True
+            path.append(nums[i])
+            backtrack(index+1) 
+            path.pop()
+            used[i]=False
+backtrack(0)             
+print(ans)
