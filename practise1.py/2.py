@@ -294,5 +294,5 @@ def backtrack(index):
             backtrack(index+1) 
             path.pop()
             used[i]=False
-backtrack(0)             
+backtrack(0             
 print(ans)
