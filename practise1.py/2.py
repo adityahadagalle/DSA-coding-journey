@@ -293,6 +293,6 @@ def backtrack(index):
             path.append(nums[i])
             backtrack(index+1) 
             path.pop()
-            used[i]=False
-backtrack(0             
+            used[i]=Fals
+backtrack(0)    
 print(ans)
