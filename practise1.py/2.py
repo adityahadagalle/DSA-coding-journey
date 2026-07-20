@@ -279,20 +279,174 @@
 # print(ans)  
 
     
+# ans = []
+# path = []
+# used = [False, False, False]    
+# nums=[1,2,3]
+# def backtrack(index):
+#     if len(path)==len(nums):
+#         ans.append(path[:])
+#         return
+#     for i in range(len(nums)):
+#         if not used[i]:
+#             used[i]=True
+#             path.append(nums[i])
+#             backtrack(index+1) 
+#             path.pop()
+#             used[i]=Fals
+# backtrack(0)    
+# print(ans)
+
+# 1. Backtracking is about making choices
+
+# Before today, you were trying to think:
+
+# "How do I generate all answers?"
+
+# Now you think:
+
+# "What choices do I have from the current state?"
+
+# For this problem, the choices are:
+
+# (
+# )
+# 2. Not every choice is valid
+
+# This is the first problem where you had to prune.
+
+# Before exploring a branch, ask:
+
+# Can I place "(" ?
+
+# Can I place ")" ?
+
+# If not, don't recurse.
+
+# This is a huge backtracking concept.
+
+# 3. State matters
+
+# You discovered that recursion needs information about the current state.
+
+# Here the state is:
+
+# path
+# open
+# close
+
+# Without this information, the recursive call cannot continue correctly.
+
+# 4. Choose → Explore → Undo
+
+# You finally wrote the classic pattern:
+
+# path.append(...)
+
+# backtrack(...)
+
+# path.pop()
+
+# This is the heart of backtracking.
+
+# 5. The template became real
+
+# Earlier you asked about this template:
+
+# Base case
+
+# Choices
+
+# Check validity
+
+# Choose
+
+# Recurse
+
+# Undo
+
+# Today you actually filled it.
+
+# Template	Generate Parentheses
+# Base case	len(path)==2*n
+# Choices	( and )
+# Invalid	open==n or close>=open
+# Choose	path.append()
+# Recurse	backtrack(...)
+# Undo	path.pop()
+
+# This is probably the biggest thing you learned.
+
+# 6. Not every backtracking problem needs a loop
+
+# This is something new.
+
+# Earlier:
+
+# Permutations:
+
+# for choice in choices:
+
+# Today:
+
+# if can_place_open:
+#     ...
+
+# if can_place_close:
+#     ...
+
+# There are still two choices, but they don't have to come from a loop.
+
+# 7. Different problems need different state
+
+# Compare everything you've learned so far:
+
+# Subsets
+
+# State:
+
+# index
+# path
+# Permutations
+
+# State:
+
+# path
+# used
+# Generate Parentheses
+
+# State:
+
+# path
+# open
+# close
+
+# This is a really important realization:
+
+# Every backtracking problem asks, "What information do I need to describe my current state?"
+
+# Once you know the state, the recursion becomes much easier to write.
 ans = []
 path = []
-used = [False, False, False]    
-nums=[1,2,3]
-def backtrack(index):
-    if len(path)==len(nums):
+open=0
+close=0
+def backtrack(n,open,close):
+    if len(path)==n*2:
         ans.append(path[:])
         return
-    for i in range(len(nums)):
-        if not used[i]:
-            used[i]=True
-            path.append(nums[i])
-            backtrack(index+1) 
-            path.pop()
-            used[i]=Fals
-backtrack(0)    
-print(ans)
+   
+    for i in ["(",")"]:
+
+            if i=="(" and open<n:
+                path.append("(")
+                backtrack(n,open+1,close)
+                path.pop()
+         
+            if i==")":
+                if close<n:
+                    if close<open:
+                            path.append(")") 
+                            backtrack(n,open,close+1)
+                            path.pop()
+backtrack(2,0,0)      
+print(ans)                        
