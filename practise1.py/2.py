@@ -426,27 +426,188 @@
 # Every backtracking problem asks, "What information do I need to describe my current state?"
 
 # Once you know the state, the recursion becomes much easier to write.
+# ans = []
+# path = []
+# open=0
+# close=0
+# def backtrack(n,open,close):
+#     if len(path)==n*2:
+#         ans.append(path[:])
+#         return
+   
+#     for i in ["(",")"]:
+
+#             if i=="(" and open<n:
+#                 path.append("(")
+#                 backtrack(n,open+1,close)
+#                 path.pop()
+         
+#             if i==")":
+#                 if close<n:
+#                     if close<open:
+#                             path.append(")") 
+#                             backtrack(n,open,close+1)
+#                             path.pop()
+# backtrack(2,0,0)      
+# print(ans)                        
+
+                                    
+
+        
+        
 ans = []
 path = []
-open=0
-close=0
-def backtrack(n,open,close):
-    if len(path)==n*2:
+
+def backtrack(tar, nums, summ, start):
+    if summ == tar:
         ans.append(path[:])
         return
-   
-    for i in ["(",")"]:
 
-            if i=="(" and open<n:
-                path.append("(")
-                backtrack(n,open+1,close)
-                path.pop()
-         
-            if i==")":
-                if close<n:
-                    if close<open:
-                            path.append(")") 
-                            backtrack(n,open,close+1)
-                            path.pop()
-backtrack(2,0,0)      
-print(ans)                        
+    for i in range(start, len(nums)):
+        if summ + nums[i] <= tar:
+
+            path.append(nums[i])
+
+            backtrack(tar, nums, summ + nums[i], i)
+
+            path.pop()
+
+backtrack(7, [2,3,6,7], 0, 0)
+print(ans) 
+# 1. State is everything ⭐⭐⭐⭐⭐
+
+# Before coding, ask:
+
+# What information does the next recursive call need?
+
+# For this problem, the state is:
+
+# start
+# remaining target (or sum)
+# path
+
+# Every backtracking problem has a different state.
+
+# 2. The start parameter
+
+# This is the biggest lesson.
+
+# start means:
+
+# "The next recursive call is only allowed to choose from this index onward."
+
+# It serves two purposes:
+
+# ✅ Allows reusing the current element.
+# ✅ Prevents duplicate combinations like:
+# 2 3
+# 3 2
+# 3. Think in terms of choices
+
+# Every recursive call asks:
+
+# "What can I choose next?"
+
+# Not:
+
+# "What is the whole answer?"
+
+# That mindset shift is huge.
+
+# 4. Choose → Recurse → Undo
+
+# Every backtracking problem follows:
+
+# Choose
+
+# Recurse
+
+# Undo
+
+# You finally got comfortable with this pattern.
+
+# 5. Don't plan ahead
+
+# This was your biggest confusion.
+
+# You kept asking:
+
+# "How many times should I choose 2?"
+
+# Now you know:
+
+# The algorithm never knows.
+
+# It simply keeps exploring until it succeeds or fails.
+
+# 6. Parent and child calls have different state
+
+# This is subtle but important.
+
+# Parent:
+
+# path = [2]
+
+# Child:
+
+# path = [2,2]
+
+# Each recursive call has its own view of the problem.
+
+# 7. Parameters describe the current world
+
+# This is a mental model I want you to keep forever.
+
+# Instead of thinking:
+
+# "Parameters are inputs."
+
+# Think:
+
+# "Parameters describe the world that this recursive call lives in."
+
+# For example:
+
+# backtrack(start=1, target=4)
+
+# means:
+
+# "I'm in a world where I have 4 left to make, and I'm only allowed to choose from index 1 onward."
+
+# That way of reading recursive calls makes them much easier to understand.
+
+# 8. You don't modify everything
+
+# Instead of doing:
+
+# summ += nums[i]
+# ...
+# summ -= nums[i]
+
+# you learned it's often cleaner to pass the updated value directly:
+
+# backtrack(..., summ + nums[i], ...)
+
+# This keeps the parent's state untouched.
+
+# 9. The same template, different state
+
+# Look at your journey:
+
+# Problem	State
+# Subsets	index, path
+# Permutations	used, path
+# Generate Parentheses	open, close, path
+# Combination Sum	start, remaining target, path
+
+# Notice something?
+
+# The template never changed.
+
+# Only the state changed.
+
+# ⭐ The biggest lesson of all
+
+# If there's one thing I hope you take away, it's this:
+
+# Backtracking isn't about writing recursion. It's about identifying the right state.         
