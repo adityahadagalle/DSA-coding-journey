@@ -455,25 +455,25 @@
 
         
         
-ans = []
-path = []
+# ans = []
+# path = []
 
-def backtrack(tar, nums, summ, start):
-    if summ == tar:
-        ans.append(path[:])
-        return
+# def backtrack(tar, nums, summ, start):
+#     if summ == tar:
+#         ans.append(path[:])
+#         return
 
-    for i in range(start, len(nums)):
-        if summ + nums[i] <= tar:
+#     for i in range(start, len(nums)):
+#         if summ + nums[i] <= tar:
 
-            path.append(nums[i])
+#             path.append(nums[i])
 
-            backtrack(tar, nums, summ + nums[i], i)
+#             backtrack(tar, nums, summ + nums[i], i)
 
-            path.pop()
+#             path.pop()
 
-backtrack(7, [2,3,6,7], 0, 0)
-print(ans) 
+# backtrack(7, [2,3,6,7], 0, 0)
+# print(ans) 
 # 1. State is everything ⭐⭐⭐⭐⭐
 
 # Before coding, ask:
@@ -611,3 +611,26 @@ print(ans)
 # If there's one thing I hope you take away, it's this:
 
 # Backtracking isn't about writing recursion. It's about identifying the right state.         
+
+s = "aab"
+path=[]
+ans=[]
+end=0
+def ispalin(s):
+    return s==s[::-1]
+        
+def backtrack(start):
+    if start == len(s):
+        ans.append(path[:])
+        return
+    for end in range(start,len(s)):
+        piece=s[start:end+1]
+        if ispalin(piece):
+            path.append(piece)
+            backtrack(end+1)
+            path.pop()
+
+ 
+backtrack(0)
+print(ans)        
+        
