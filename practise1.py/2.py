@@ -612,25 +612,65 @@
 
 # Backtracking isn't about writing recursion. It's about identifying the right state.         
 
-s = "aab"
-path=[]
-ans=[]
-end=0
-def ispalin(s):
-    return s==s[::-1]
+# s = "aab"
+# path=[]
+# ans=[]
+# end=0
+# def ispalin(s):
+#     return s==s[::-1]
         
-def backtrack(start):
-    if start == len(s):
-        ans.append(path[:])
-        return
-    for end in range(start,len(s)):
-        piece=s[start:end+1]
-        if ispalin(piece):
-            path.append(piece)
-            backtrack(end+1)
-            path.pop()
+# def backtrack(start):
+#     if start == len(s):
+#         ans.append(path[:])
+#         return
+#     for end in range(start,len(s)):
+#         piece=s[start:end+1]
+#         if ispalin(piece):
+#             path.append(piece)
+#             backtrack(end+1)
+#             path.pop()
 
  
-backtrack(0)
-print(ans      
+# backtrack(0)
+# print(ans  )   
+
+
+ 
+# path=[]
+# ans=[]
+# s="25525511135"
+# def backtrack(start):
+#     if start == len(s):
+#         if len(path) == 4:
+#             ans.append(path[:])
+#             return
+#     for end in range(start, min(start+3,len(s))):
+#         peace = s[start:end + 1]
+#         if int(peace)<=255:
+#             continue
         
+            
+#         path.append(peace)
+#         backtrack(end+3)
+#         path.pop()
+# backtrack(0)
+# print(ans)            
+            
+        
+
+path=[]
+ans=[]   
+
+def backtrack(start,s,k):
+    if len(path)==len(s)*len(k):
+        ans.append(path[:])
+        return
+    for i in range(len(k)):
+        a=s[start]+k[i]
+        path.append(a)
+    backtrack(start+1,s,k)  
+    path.pop() 
+
+            
+backtrack(0,"abc","def")
+print(ans)        
