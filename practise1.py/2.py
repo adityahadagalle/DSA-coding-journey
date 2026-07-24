@@ -657,20 +657,28 @@
 # print(ans)            
             
         
+      
 
-path=[]
-ans=[]   
 
-def backtrack(start,s,k):
-    if len(path)==len(s)*len(k):
-        ans.append(path[:])
+path = []
+ans = []
+
+def backtrack(start, s, k):
+    if start == len(s):
         return
-    for i in range(len(k)):
-        a=s[start]+k[i]
-        path.append(a)
-    backtrack(start+1,s,k)  
-    path.pop() 
 
-            
-backtrack(0,"abc","def"
-print(ans)        
+    first = s[start]
+
+    for i in range(len(k)):
+        path.append(first)
+        path.append(k[i])
+
+        ans.append("".join(path))
+
+        path.pop()
+        path.pop()
+
+    backtrack(start + 1, s, k)
+
+backtrack(0, "abc", "def")
+print(ans)
