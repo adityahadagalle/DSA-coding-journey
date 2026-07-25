@@ -703,4 +703,3 @@ def backtrack(start,target,nums,summ):
             k=path.pop()
 backtrack(0,4,[1,1,2,2],0)            
 print(ans)
-[1,2,2,2,5]
