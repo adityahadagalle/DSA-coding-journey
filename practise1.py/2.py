@@ -685,21 +685,42 @@
       
       
       
+# ans=[]
+# path=[]
+# k=0
+# def backtrack(start,target,nums,summ):
+#     global k
+#     nums.sort()
+#     if summ==target:
+#         ans.append(path[:])
+#         return
+#     for i in range(start,len(nums)):
+#         if summ+nums[i]>target:
+#             continue
+#         if nums[i]!=k:
+#             path.append(nums[i])
+#             backtrack(i+1,target,nums,summ+nums[i])
+#             k=path.pop()
+# backtrack(0,4,[1,1,2,2],0)            
+# print(ans)
+
+
+
 ans=[]
 path=[]
-k=0
-def backtrack(start,target,nums,summ):
-    global k
+def backtrack(start,nums,k,summ):
     nums.sort()
-    if summ==target:
-        ans.append(path[:])
+    cond=sum(nums)//k
+    if sum(path)==cond:
+        ans.append(path)
         return
     for i in range(start,len(nums)):
-        if summ+nums[i]>target:
+        if summ+nums[i]<=cond:
+            summ+=nums[i]
             continue
-        if nums[i]!=k:
-            path.append(nums[i])
-            backtrack(i+1,target,nums,summ+nums[i])
-            k=path.pop()
-backtrack(0,4,[1,1,2,2],0)            
-print(ans)
+        backtrack(i+1,nums,k,summ+nums[i])
+        path.pop()
+        summ-=nums[i]
+backtrack(0,[1,2,2,3],2,0)
+print(ans)        
+        
