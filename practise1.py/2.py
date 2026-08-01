@@ -293,7 +293,7 @@
 #             path.append(nums[i])
 #             backtrack(index+1) 
 #             path.pop()
-#             used[i]=Fals
+#             used[i]=False
 # backtrack(0)    
 # print(ans)
 
@@ -705,22 +705,21 @@
 # print(ans)
 
 
-
-ans=[]
-path=[]
-def backtrack(start,nums,k,summ):
-    nums.sort()
-    cond=sum(nums)//k
-    if sum(path)==cond:
-        ans.append(path)
-        return
-    for i in range(start,len(nums)):
-        if summ+nums[i]<=cond:
-            summ+=nums[i]
-            continue
-        backtrack(i+1,nums,k,summ+nums[i])
-        path.pop()
-        summ-=nums[i]
-backtrack(0,[1,2,2,3],2,0)
-print(ans)        
-        
+# ans=[]
+# path=[]
+# def backtrack(start,nums,k,summ):
+#     nums.sort()
+#     cond=sum(nums)//k
+#     if summ==cond:
+#         ans.append(path[:])
+#         return
+#     for i in range(start,len(nums)):
+#         if summ+nums[i]<=cond:
+#             path.append(nums[i])
+#             backtrack(i+1,nums,k,summ+nums[i])
+#         if path:            
+#             path.pop()
+#             summ-=nums[i]
+# backtrack(0,[1,1,2,2,3,3],3,0)
+# print(ans)        
+            
