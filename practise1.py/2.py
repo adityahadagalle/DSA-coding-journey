@@ -727,7 +727,116 @@
 #trees########################################################   ############################   ############################   ############################   ############################   ############################   ############################   ############################   ############################               
 
 
-from collections import deque
+# from collections import deque
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.left = None
+#         self.right = None
+
+
+# root = Node(1)
+
+# root.left = Node(2)
+# root.right = Node(3)
+
+# root.left.left = Node(4)
+# root.left.right = Node(5)
+
+# root.right.left = Node(6)
+# root.right.right = Node(7)
+
+# root.left.left.left = Node(8)
+# root.left.left.right = Node(9)
+
+# root.right.left.right = Node(10)
+
+# queue = deque([root])
+# ans = []
+# used=True
+# while queue:
+
+#     level = []
+
+#     size = len(queue)
+
+#     for _ in range(size):
+
+#         node = queue.popleft()
+
+#         level.append(node.val)
+            
+#         if node.left:
+#                 queue.append(node.left)
+
+#         if node.right:
+#                 queue.append(node.right)
+
+                
+#     if used:    
+#         ans.append(level)
+#         used=False
+#     else:
+#         level.reverse()
+#         ans.append(level)
+#         used=True   
+
+# print(ans)
+
+
+
+# class Node:
+#     def __init__(self, val):
+#         self.val = val
+#         self.left = None
+#         self.right = None
+
+
+# root = Node(1)
+
+# root.left = Node(2)
+# root.right = Node(2)
+
+# root.left.left = Node(3)
+# root.left.right = Node(4)
+
+# root.right.left = Node(4)
+# root.right.right = Node(3)
+# def sameTree(root1, root2):
+
+#     # 1)
+#     if root1 is None and root2 is None:
+#         return True
+
+#     # 2)
+#     if root1 is None or root2 is None:
+#         return False
+
+#     # 3)
+#     if root1.val != root2.val:
+#         return False
+
+#     # 4)
+#     left = sameTree(root1.left, root2.right)
+
+#     # 5)
+#     right = sameTree(root1.right, root2.left)
+
+#     # 6)
+#     if left == True and right == True:
+#         return True
+
+#     # 7)
+#     return False
+# def sym(root):
+#     return sameTree(root.left,root.right)
+
+# print(sym(root))
+
+
+
+
+
 class Node:
     def __init__(self, val):
         self.val = val
@@ -735,50 +844,40 @@ class Node:
         self.right = None
 
 
-root = Node(1)
+root = Node(4)
 
 root.left = Node(2)
-root.right = Node(3)
+root.right = Node(7)
 
-root.left.left = Node(4)
-root.left.right = Node(5)
+root.left.left = Node(1)
+root.left.right = Node(3)
 
 root.right.left = Node(6)
-root.right.right = Node(7)
+root.right.right = Node(9)
+def sameTree(root1):
+    if root1 is None:
+        return 
 
-root.left.left.left = Node(8)
-root.left.left.right = Node(9)
+    root1.left, root1.right = root1.right, root1.left
+    
+    sameTree(root1.left)
 
-root.right.left.right = Node(10)
+    sameTree(root1.right)
 
-queue = deque([root])
-ans = []
-used=True
-while queue:
 
-    level = []
 
-    size = len(queue)
 
-    for _ in range(size):
 
-        node = queue.popleft()
 
-        level.append(node.val)
-            
-        if node.left:
-                queue.append(node.left)
+#         4
+#       /   \
+#      2     7
+#     / \   / \
+#    1   3 6   9
 
-        if node.right:
-                queue.append(node.right)
 
-                
-    if used:    
-        ans.append(level)
-        used=False
-    else:
-        level.reverse()
-        ans.append(level)
-        used=True   
-
-print(ans)
+#         4
+#       /   \
+#      7     2
+#     / \   / \
+#    9   6 3   1
