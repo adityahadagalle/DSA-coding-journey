@@ -1,5 +1,5 @@
 class Solution:
-    def removeDuplicates(sef, nums: List[int]) -> int:
+    def removeDuplicates(self, nums: List[int]) -> int:
         i = 0
 
         for j in range(1, len(nums)):
