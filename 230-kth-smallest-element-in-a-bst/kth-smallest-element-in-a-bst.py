@@ -1,15 +1,23 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        res = []
+        count = 0
 
         def inorder(root):
+            nonlocal count
+
             if root is None:
-                return
+                return None
 
-            inorder(root.left)
-            res.append(root.val)
-            inorder(root.right)
+            result = inorder(root.left)
 
-        inorder(root)
+            if result is not None:
+                return result
 
-        return res[k - 1]
+            count += 1
+
+            if count == k:
+                return root.val
+
+            return inorder(root.right)
+
+        return inorder(root)
