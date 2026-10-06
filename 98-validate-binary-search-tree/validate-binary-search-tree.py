@@ -17,4 +17,3 @@ class Solution:
             return True
 
         return find(root, float('inf'), float('-inf'))
-
