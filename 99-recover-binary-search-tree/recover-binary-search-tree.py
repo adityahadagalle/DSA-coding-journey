@@ -4,25 +4,27 @@ class Solution:
         first = None
         mid = None
         last = None
+        count = 0
 
-        def find(node):
-            nonlocal prev, first, mid, last
+        def find(root):
+            nonlocal prev, first, mid, last, count
 
-            if node is None:
+            if root is None:
                 return
 
-            find(node.left)
+            find(root.left)
 
-            if prev is not None and prev.val > node.val:
-                if not first:
+            if prev is not None and prev.val > root.val:
+                if count == 0:
                     first = prev
-                    mid = node
-                else:
-                    last = node
+                    mid = root
+                    count += 1
+                if count == 1:
+                    last = root
 
-            prev = node
+            prev = root
 
-            find(node.right)
+            find(root.right)
 
         find(root)
 
