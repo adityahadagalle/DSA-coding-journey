@@ -1,14 +1,18 @@
+from typing import List
+
 class Solution:
-    def subarraysDivByK(self, nums, k):
-        dictt={0:1}
-        pre=0
-        count=0
+    def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        count = 0
+        pre = 0
+        freq = {0: 1}
+        
         for i in range(len(nums)):
-            pre+=nums[i]
-            val=pre%k
-            if val in dictt:
-                count+=dictt[val]
+            pre += nums[i]
+            check = pre % k
             
-            dictt[val]=dictt.get(val,0)+1  
+            if check in freq:
+                count += freq[check]
                 
+            freq[check] = freq.get(check, 0) + 1
+            
         return count
