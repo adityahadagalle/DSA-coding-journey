@@ -4,23 +4,20 @@ from typing import List
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-
-        result = []
-        freq = Counter(nums)
         heap = []
-        check = 0
+        freq = Counter(nums)
 
         for number, count in freq.items():
-            if check < k:
+            if len(heap) < k:
                 heapq.heappush(heap, (count, number))
-                check += 1
                 continue
 
-            if heap[0][0] < count:
-                heapq.heappop(heap)
-                heapq.heappush(heap, (count, number))
+            heapq.heappush(heap, (count, number))
+            heapq.heappop(heap)
+
+        res = []
 
         while heap:
-            result.append(heapq.heappop(heap)[1])
+            res.append(heapq.heappop(heap)[1])
 
-        return result
+        return res
