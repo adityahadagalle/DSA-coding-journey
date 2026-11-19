@@ -4,29 +4,42 @@ from typing import List
 
 class Solution:
     def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
-        if len(hand) % groupSize != 0:
-            return False
 
         freq = Counter(hand)
 
-        heap = list(freq.keys())
+        heap = [(number, count) for number, count in freq.items()]
         heapq.heapify(heap)
 
+        ress = []
+
         while heap:
-            start = heap[0]
 
-            for num in range(start, start + groupSize):
+            temp = []
 
-                if freq[num] == 0:
+            for _ in range(groupSize):
+
+                if not heap:
                     return False
 
-                freq[num] -= 1
+                number, count = heapq.heappop(heap)
 
-                if freq[num] == 0:
+                if not ress:
+                    ress.append(number)
 
-                    if num != heap[0]:
-                        return False
+                elif ress[-1] + 1 == number:
+                    ress.append(number)
 
-                    heapq.heappop(heap)
+                else:
+                    return False
+
+                count -= 1
+
+                if count > 0:
+                    temp.append((number, count))
+
+            for item in temp:
+                heapq.heappush(heap, item)
+
+            ress = []
 
         return True
