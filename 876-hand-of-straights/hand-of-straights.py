@@ -22,7 +22,7 @@ class Solution:
                     return False
 
                 number, count = heapq.heappop(heap)
-
+                count -= 1
                 if not ress:
                     ress.append(number)
 
@@ -32,7 +32,7 @@ class Solution:
                 else:
                     return False
 
-                count -= 1
+            
 
                 if count > 0:
                     temp.append((number, count))
